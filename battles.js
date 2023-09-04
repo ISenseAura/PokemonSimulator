@@ -14,7 +14,9 @@ class Player {
 
 class SingleBattle {
   constructor(format, p1, p2, teams, secret) {
-    this.createdOn = new Date();
+    this.createdOnO = new Date();
+    this.createdOn = Tools.toTimestampString(this.createdOnO);
+
 
     this.secret = secret;
     this.id = ">battle-" + format + "-" + this.secret;
@@ -54,8 +56,9 @@ class SingleBattle {
 
     (async () => {
       for await (const output of this.battleStream) {
-        console.log(output + "\n\n");
+        // console.log(output + "\n\n");
         this.outputLogs.push(output);
+        if(output.startsWith("end")) return;
         if (this.isStarted) {
           if (output.includes("sideupdate") || output.includes("update")) {
             parseBattle(output, this.p1, this.p2, this);
@@ -65,7 +68,7 @@ class SingleBattle {
             this.p2log.push(`${this.id} \n ${output}`);
             this.spectatorLogs.push(`${this.id} \n ${output}`);
 
-            this.broadcastAll(`${this.id} \n ${output}`);
+            this.broadcastAll(`${this.id} \n${output}`);
             this.p1.socket.send(`${this.id} \n ${output}`);
             this.p2.socket.send(`${this.id} \n ${output}`);
           }
@@ -76,6 +79,7 @@ class SingleBattle {
   }
 
   init() {
+    console.log(this.p1.id + this.p2.id)
     if (!(this.p1 && this.p2)) return console.log("not all players are joined");
     this.p1.socket.send(
       `${this.id} \n|init|battle \n|title| ${this.p1.name} vs ${this.p2.name} \n|j|${this.p1.name} \n|j|${this.p2.name}`
@@ -113,11 +117,30 @@ class SingleBattle {
     this.spectatorLogs.push(id + "\n" + msg);
   }
 
+  sendAllExcept(msg,p1,p2) {
+    if(!msg.startsWith(">battle")) msg = this.id + "\n" + msg;
+    this.logAll(msg);
+    if(this.p1) this.p1.socket.send(msg);
+    if(this.p2) this.p2.socket.send(msg);
+    this.broadcastAll(msg);
+  }
+
   addPlayer(p) {
-    console.log(p);
+     console.log("Adding Player " + p.name);
     let id = Tools.random(2) + 1;
-    if (!(this.p1 && this.p2)) {
-      if (id == 1) {
+
+    if (this.p1) {
+      console.log("SOCKET CHANGE IN P1");
+      if (this.p1.id == p.id) this.p1.socket = p.socket;
+    }
+
+    if (this.p2) {
+      console.log("SOCKET CHANGE IN P2");
+      if (this.p2.id == p.id) this.p2.socket = p.socket;
+    }
+
+    if (!this.p1) {
+   
         this.p1 = new Player(
           p.name,
           p.id,
@@ -125,7 +148,11 @@ class SingleBattle {
           this.teams ? this.teams[0] : false,
           p.socket
         );
-      } else {
+    }
+ 
+    else if (this.p1 && !this.p2)
+     {
+      if (this.p1.id == p.id) return;
         this.p2 = new Player(
           p.name,
           p.id,
@@ -134,25 +161,8 @@ class SingleBattle {
           p.socket
         );
       }
-    }
-    if (this.p2 && !this.p1) {
-      this.p1 = new Player(
-        p.name,
-        p.id,
-        "p1",
-        this.teams ? this.teams[0] : false,
-        p.socket
-      );
-    }
-    if (this.p1 && !this.p2) {
-      this.p2 = new Player(
-        p.name,
-        p.id,
-        "p2",
-        this.teams ? this.teams[1] : false,
-        p.socket
-      );
-    }
+    
+  
     if (this.p1.id == this.p2.id) delete this.p2;
   }
 
@@ -164,14 +174,28 @@ class SingleBattle {
   }
 
   broadcastAll(msg) {
-    if(!this.users || !Object.keys(this.users).length) return;
-    for (user of this.users) {
-      if (user.socket) user.socket.send(msg);
+    if (!this.users || !Object.keys(this.users).length) return;
+    console.log("TeSt");
+    for (let user in this.users) {
+      console.log(this.users[user]);
+      if (this.users[user]) this.users[user].socket.send(msg);
     }
     this.guests.forEach((ws) => {
       ws.send(msg);
-    })
+    });
+  }
 
+  forfeit(user) {
+    let c = `${this.id} \n|c|BATTLE|*${user.name} forfeitted the battle*`;
+    this.logAll(c);
+    this.broadcastAll(c);
+    this.p1.socket.send(c);
+    this.p2.socket.send(c);
+    if (this.p1.id == user.id) {
+      this.write(">forcewin p2");
+    } else {
+      this.write(">forcewin p1");
+    }
   }
 
   makeMove(by, data) {

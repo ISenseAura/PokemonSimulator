@@ -1,0 +1,145 @@
+>battle-gen7ou-test
+>battle-gen7ou-test 
+|j|Mayur-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|Mayur-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|MayurR-|BREAK|->battle-gen7ou-test 
+|init|battle 
+|title| Mayur vs MayurR 
+|j|Mayur 
+|j|MayurR-|BREAK|->battle-gen7ou-test 
+update
+|t:|1691053597
+|gametype|singles
+|player|p1|Mayur||
+|player|p2|MayurR||
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|7
+|tier|[Gen 7] OU
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Moody Clause: Moody is banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|clearpoke
+|poke|p1|Metagross, L83|item
+|poke|p1|Machamp, L84, F|item
+|poke|p1|Gorebyss, L85, F|item
+|poke|p1|Mewtwo, L73|item
+|poke|p1|Silvally-*, L88|item
+|poke|p1|Tentacruel, L82, M|item
+|poke|p2|Tapu Koko, L79|item
+|poke|p2|Shaymin, L84|item
+|poke|p2|Kingler, L88, M|item
+|poke|p2|Dialga, L76|item
+|poke|p2|Gallade, L81, M|item
+|poke|p2|Starmie, L83|item
+|teampreview-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|MayurR-|BREAK|->battle-gen7ou-test 
+update
+|
+|t:|1691053622
+|start
+|switch|p1a: Silvally|Silvally-Steel, L88|100/100
+|switch|p2a: Dialga|Dialga, L76|100/100
+|-ability|p2a: Dialga|Pressure
+|turn|1-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|Mayur-|BREAK|->battle-gen7ou-test 
+update
+|
+|t:|1691053641
+|move|p1a: Silvally|Flamethrower|p2a: Dialga
+|-damage|p2a: Dialga|75/100
+|move|p2a: Dialga|Fire Blast|p1a: Silvally
+|-supereffective|p1a: Silvally
+|-damage|p1a: Silvally|48/100
+|
+|-heal|p2a: Dialga|81/100|[from] item: Leftovers
+|upkeep
+|turn|2-|BREAK|->battle-gen7ou-test 
+update
+|
+|t:|1691053656
+|switch|p1a: Gorebyss|Gorebyss, L85, F|100/100
+|move|p2a: Dialga|Fire Blast|p1a: Gorebyss
+|-resisted|p1a: Gorebyss
+|-damage|p1a: Gorebyss|80/100
+|
+|-heal|p2a: Dialga|88/100|[from] item: Leftovers
+|upkeep
+|turn|3-|BREAK|->battle-gen7ou-test 
+update
+|
+|t:|1691053670
+|move|p2a: Dialga|Draco Meteor|p1a: Gorebyss
+|-damage|p1a: Gorebyss|0 fnt
+|-unboost|p2a: Dialga|spa|2
+|faint|p1a: Gorebyss
+|
+|-heal|p2a: Dialga|94/100|[from] item: Leftovers
+|upkeep-|BREAK|->battle-gen7ou-test 
+update
+|
+|t:|1691053675
+|switch|p1a: Mewtwo|Mewtwo, L73|100/100
+|-ability|p1a: Mewtwo|Unnerve
+|turn|4-|BREAK|->battle-gen7ou-test 
+update
+|
+|t:|1691053688
+|detailschange|p1a: Mewtwo|Mewtwo-Mega-X, L73
+|-mega|p1a: Mewtwo|Mewtwo|Mewtwonite X
+|move|p1a: Mewtwo|Zen Headbutt|p2a: Dialga
+|-resisted|p2a: Dialga
+|-damage|p2a: Dialga|77/100
+|move|p2a: Dialga|Flash Cannon|p1a: Mewtwo
+|-damage|p1a: Mewtwo|83/100
+|
+|-heal|p2a: Dialga|84/100|[from] item: Leftovers
+|upkeep
+|turn|5-|BREAK|->battle-gen7ou-test 
+update
+|
+|t:|1691053705
+|switch|p2a: Gallade|Gallade, L81, M|100/100
+|move|p1a: Mewtwo|Bulk Up|p1a: Mewtwo
+|-boost|p1a: Mewtwo|atk|1
+|-boost|p1a: Mewtwo|def|1
+|
+|upkeep
+|turn|6-|BREAK|->battle-gen7ou-test 
+update
+|
+|t:|1691053717
+|detailschange|p2a: Gallade|Gallade-Mega, L81, M
+|-mega|p2a: Gallade|Gallade|Galladite
+|move|p1a: Mewtwo|Bulk Up|p1a: Mewtwo
+|-boost|p1a: Mewtwo|atk|1
+|-boost|p1a: Mewtwo|def|1
+|move|p2a: Gallade|Knock Off|p1a: Mewtwo
+|-damage|p1a: Mewtwo|70/100
+|
+|upkeep
+|turn|7-|BREAK|->battle-gen7ou-test 
+update
+|
+|t:|1691053733
+|move|p1a: Mewtwo|Zen Headbutt|p2a: Gallade
+|-damage|p2a: Gallade|9/100
+|move|p2a: Gallade|Ice Punch|p1a: Mewtwo
+|-damage|p1a: Mewtwo|54/100
+|
+|upkeep
+|turn|8-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|c|BATTLE|*MayurR forfeitted the battle*-|BREAK|->battle-gen7ou-test 
+update
+|
+|win|Mayur

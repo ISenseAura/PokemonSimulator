@@ -21,7 +21,8 @@ stream.write(`>start {"formatid":"gen7ou"}
 >p1 move 1
 >p2 switch 3
 >p1 move 3
->p2 move 2`);
+>p2 move 2
+>forcewin p1 fofiettt`);
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

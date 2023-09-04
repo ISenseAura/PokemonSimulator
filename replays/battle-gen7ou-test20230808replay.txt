@@ -1,0 +1,58 @@
+>battle-gen7ou-test
+>battle-gen7ou-test 
+|j|Mayur-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|Mayur-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|MayurR-|BREAK|->battle-gen7ou-test 
+|init|battle 
+|title| Mayur vs MayurR 
+|j|Mayur 
+|j|MayurR-|BREAK|->battle-gen7ou-test 
+update
+|t:|1691501516
+|gametype|singles
+|player|p1|Mayur||
+|player|p2|MayurR||
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|7
+|tier|[Gen 7] OU
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Moody Clause: Moody is banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|clearpoke
+|poke|p1|Quagsire, L84, F|item
+|poke|p1|Azumarill, L80, F|item
+|poke|p1|Escavalier, L84, M|item
+|poke|p1|Aerodactyl, L81, M|item
+|poke|p1|Reuniclus, L85, M|item
+|poke|p1|Gogoat, L88, F|item
+|poke|p2|Exploud, L86, F|item
+|poke|p2|Scyther, L87, F|item
+|poke|p2|Ampharos, L88, F|item
+|poke|p2|Haxorus, L81, M|item
+|poke|p2|Articuno, L88|item
+|poke|p2|Mewtwo, L73|item
+|teampreview-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|Mayur-|BREAK|->battle-gen7ou-test 
+update
+|
+|t:|1691501576
+|start
+|switch|p1a: Aerodactyl|Aerodactyl, L81, M|100/100
+|switch|p2a: Articuno|Articuno, L88|100/100
+|-ability|p1a: Aerodactyl|Unnerve
+|-ability|p2a: Articuno|Pressure
+|turn|1-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|c|BATTLE|*Mayur forfeitted the battle*-|BREAK|->battle-gen7ou-test 
+update
+|
+|win|MayurR

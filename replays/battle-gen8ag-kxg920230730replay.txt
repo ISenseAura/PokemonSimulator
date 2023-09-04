@@ -1,0 +1,94 @@
+>battle-gen8ag-kxg9
+|notstarted| 
+ |slotsupdate|2-|BREAK|->battle-gen8ag-kxg9
+>battle-gen8ag-kxg9 
+|j|Mayur-|BREAK|->battle-gen8ag-kxg9
+>battle-gen8ag-kxg9 
+|j|Mayur-|BREAK|->battle-gen8ag-kxg9
+>battle-gen8ag-kxg9 
+|j|MayurR-|BREAK|->battle-gen8ag-kxg9 
+|init|battle 
+|title| Mayur vs MayurR 
+|j|Mayur 
+|j|MayurR-|BREAK|->battle-gen8ag-kxg9 
+update
+|t:|1690731025
+|gametype|singles
+|player|p1|Mayur||
+|player|p2|MayurR||
+|teamsize|p1|1
+|teamsize|p2|1
+|gen|9
+|tier|gen8ag
+|
+|t:|1690731025
+|start
+|switch|p1a: Necrozma|Necrozma-Dusk-Mane|100/100
+|switch|p2a: Necrozma|Necrozma-Dusk-Mane|100/100
+|turn|1-|BREAK|->battle-gen8ag-kxg9
+>battle-gen8ag-kxg9 
+|j|MayurR-|BREAK|->battle-gen8ag-kxg9 
+update
+|
+|t:|1690731043
+|-terastallize|p2a: Necrozma|Psychic
+|move|p2a: Necrozma|Sunsteel Strike|p1a: Necrozma
+|-resisted|p1a: Necrozma
+|-damage|p1a: Necrozma|86/100
+|move|p1a: Necrozma|Earthquake|p2a: Necrozma
+|-damage|p2a: Necrozma|82/100
+|
+|upkeep
+|turn|2-|BREAK|->battle-gen8ag-kxg9 
+update
+|
+|t:|1690731057
+|move|p1a: Necrozma|Sunsteel Strike|p2a: Necrozma
+|-damage|p2a: Necrozma|54/100
+|move|p2a: Necrozma|Dragon Dance|p2a: Necrozma
+|-boost|p2a: Necrozma|atk|1
+|-boost|p2a: Necrozma|spe|1
+|
+|upkeep
+|turn|3-|BREAK|->battle-gen8ag-kxg9 
+update
+|
+|t:|1690731069
+|move|p2a: Necrozma|Earthquake|p1a: Necrozma
+|-supereffective|p1a: Necrozma
+|-damage|p1a: Necrozma|43/100
+|move|p1a: Necrozma|Earthquake|p2a: Necrozma
+|-damage|p2a: Necrozma|36/100
+|
+|upkeep
+|turn|4-|BREAK|->battle-gen8ag-kxg9 
+update
+|
+|t:|1690731083
+|move|p2a: Necrozma|Earthquake|p1a: Necrozma
+|-supereffective|p1a: Necrozma
+|-damage|p1a: Necrozma|3/100
+|move|p1a: Necrozma|Earthquake|p2a: Necrozma
+|-damage|p2a: Necrozma|19/100
+|
+|upkeep
+|turn|5-|BREAK|->battle-gen8ag-kxg9 
+update
+|
+|t:|1690731097
+|move|p2a: Necrozma|Morning Sun|p2a: Necrozma
+|-heal|p2a: Necrozma|68/100
+|move|p1a: Necrozma|Sunsteel Strike|p2a: Necrozma
+|-damage|p2a: Necrozma|39/100
+|
+|upkeep
+|turn|6-|BREAK|->battle-gen8ag-kxg9 
+update
+|
+|t:|1690731108
+|-terastallize|p1a: Necrozma|Psychic
+|move|p2a: Necrozma|Earthquake|p1a: Necrozma
+|-damage|p1a: Necrozma|0 fnt
+|faint|p1a: Necrozma
+|
+|win|MayurR

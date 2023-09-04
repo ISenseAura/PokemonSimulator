@@ -62,16 +62,24 @@ wss.on("connection", (ws) => {
               console.log("NOT A PARTICIPANT")
               if(token.startsWith("Guest") || token.startsWith("guest"))  {
 
+                console.log("testt")
                 battles[secret].guests.push(ws);
               }
               else {
-              battles[secret].users[token] = ws;
+                let u= jwt.verify(token, jwtKey);
+                let c = `${battles[secret].id} \n|j|${u.name}`
+                battles[secret].sendAllExcept(c,false);
+                initUser(u,ws)
+                if(!u.socket) u.socket = ws;
+              battles[secret].users[token] = u;
+
+             
               }
               ws.send("%j%" + battles[secret].id.replace(">", ""));
               console.log(battles[secret].spectatorLogs)
-              ws.send(
-               battles[secret].spectatorLogs.join("")
-              );
+              battles[secret].spectatorLogs.forEach((log) => {
+                ws.send(log);
+              })
             } else {
               let user = jwt.verify(token, jwtKey);
               if (!user) return ws.send("/error User not authenticated");
@@ -81,6 +89,7 @@ wss.on("connection", (ws) => {
                 teams: false,
                 socket: ws,
               });
+
               let isPlayer = battles[secret].hasPlayer(user.id);
               if(isPlayer) battles[secret][isPlayer].socket = ws;
               ws.send("%j%" + battles[secret].id.replace(">", ""));
@@ -98,11 +107,14 @@ wss.on("connection", (ws) => {
                 }
                 if (battles[secret].p2.id == user.id) {
                   battles[secret].p2log.forEach((log) => {
+                    battles[secret].p1.socket.send("")
                     ws.send(log);
                     return;
                   });
                 }
               }
+              let c = `${battles[secret].id} \n|j|${user.name}`
+              battles[secret].sendAllExcept(c,false);
               
               if(!battles[secret].isStarted) return battles[secret].init();
 
@@ -136,6 +148,18 @@ wss.on("connection", (ws) => {
             }
             break;
 
+            
+          case "hasReplay":
+            {
+              console.log(DB.data)
+              console.log(secret);
+              if(secret.includes("|")) secret = secret.split("|")[0].trim();
+              if (DB.data[secret])
+                return ws.send("%j%" + secret); 
+              ws.send("%noreplay%" + secret);
+            }
+            break;
+
         case "login":
           {
             let username = data[2];
@@ -161,6 +185,7 @@ wss.on("connection", (ws) => {
           {
             let username = data[2];
             let password = data[3];
+            if(Tools.toId(username).includes("guest")) return    ws.send("%loginfail%" + "Username cannot include 'Guest'");
             signup(username, password, false);
             setTimeout(() => {
               initUser(Tools.toId(username,ws)).then((token) => {
@@ -225,8 +250,27 @@ wss.on("connection", (ws) => {
               }
             }
             break;
-      }
+     
+     
+          }
     } else if (message.charAt(0) == "/") {
+
+
+      if (message.slice(1, 5) == "join") {
+        let opts = message.split("|");
+        let roomName = opts[0].split(" ")[1]
+        let secret = roomName.split("-")[2];
+        let token = opts[3];
+
+        if(!roomName || !secret) return;
+       // let user = jwt.verify(token, jwtKey);
+        console.log(roomName);
+        console.log(secret);
+      //  console.log(user);
+        let battle = secret.endsWith("replay") ?  DB.data[roomName] : battles[secret];
+        if (!battle) return ws.send("/error battle or it's replay does not exist");
+      }
+
       if (message.slice(1, 5) == "team") {
         let opts = message.split("|");
         let secret = opts[2].split("-")[2];
@@ -255,6 +299,85 @@ wss.on("connection", (ws) => {
           battle.makeMove(user, opts[0].replace("choose", ""));
         }
       }
+
+
+      else if (message.slice(1, 6) == "timer") {
+        let opts = message.split("|");
+        console.log(opts);
+        let secret = opts[1].split("-")[2];
+        let token = opts[2];
+        let user = jwt.verify(token, jwtKey);
+        console.log(opts);
+        console.log(secret);
+        console.log(user);
+        let battle = battles[secret];
+        if (!battle) return ws.send("/error Battle does not exists");
+        if (user && user.name) {
+          battle.makeMove(user, opts[0].trim());
+        }
+      }
+
+      else if (message.slice(1, 8) == "forfeit") {
+        let opts = message.split("|");
+        console.log(opts);
+        let secret = opts[1].split("-")[2];
+        let token = opts[2];
+        let user = jwt.verify(token, jwtKey);
+        console.log(opts);
+        console.log(secret);
+        console.log(user);
+        let battle = battles[secret];
+        if (!battle) return ws.send("/error Battle does not exists");
+        if (user && user.name) {
+          console.log("calling battle.forfeit");
+          battle.forfeit(user);
+        }
+      }
+
+      else if (message.slice(1, 11) == "savereplay") {
+        let opts = message.split("|");
+        console.log(opts);
+        let secret = opts[1].split("-")[2];
+        let token = opts[2];
+        let user = jwt.verify(token, jwtKey);
+        console.log(opts);
+        let battle = battles[secret];
+        if (!battle) return ws.send("/error Battle does not exists");
+        if (user && user.name) {
+          let unique = battle.createdOn.split(" ")[0].split("-").join("");
+          
+        //  let r = { id : battle.id, rid : battle.id + unique + "replay", logs : (battle.spectatorLogs)}
+         DB.data[battle.id.replace(">","") + unique + "replay"] = battle.spectatorLogs;
+         DB.exportDatabase(battle.id.replace(">","") + unique + "replay");
+
+         ws.send("|popup| Your replay was successfully uploaded. This is your replay secret through which you can access this replay \n SECRET : " +  battle.id + unique + "replay" + " \n  you will be redirected to the replay tab");
+       //  ws.send("%viewreplay%" + battle.id.replace(">","") + unique + "replay")
+        }
+      }
+
+
+      else if (message.slice(1, 11) == "viewreplay") {
+        let opts = message.split("|");
+        console.log(opts);
+        let secret = opts[0].split(" ")[1];
+        console.log(secret);
+
+        let code = secret.split("-")[2].slice(0,4);
+        let arr = secret.split("-");
+        arr[2] = code;
+        let battleID = arr.join("-");
+ 
+        console.log(battleID);
+        let battle = DB.data[secret.replace(">","")];
+        if (!battle) return ws.send("/error Replay does not exists");
+         (battle).forEach((log) => {
+
+          ws.send(log.replace(battleID,secret));
+          return;
+        });
+        
+      }
+
     }
     else if(message.includes("|")) {
       let opts = message.split("|");
@@ -272,7 +395,7 @@ wss.on("connection", (ws) => {
 
       if (!battle) return ws.send("/error battle does nott exist");
       if (user && user.name) {
-        
+        if(!battle.isStarted) return ws.send(`${battle.id}\n|c|Due to spam reasons you can only chat after the battle starts`);
         battle.broadcastAll(`${battle.id}\n|c|${battle.isPlayer(user.id) ? "#" + user.name : user.name}|${msg}`);
         battle.p1.socket.send(`${battle.id}\n|c|${battle.isPlayer(user.id) ? "#" + user.name : user.name}|${msg}`);
         battle.p2.socket.send(`${battle.id}\n|c|${battle.isPlayer(user.id) ? "#" + user.name : user.name}|${msg}`);
@@ -304,12 +427,17 @@ app.post("/create", (req, res) => {
     if(teams) {
       let outputs = [];
       teams.forEach((team,i) => {
+        console.log(team);
         let validator = new TeamValidator(format);
         if(typeof team == typeof {}) outputs[i] = validator.validateTeam(team);
-        if(typeof team == typeof "") outputs[i] = validator.validateTeam(JSON.parse(team));
+        if(typeof team == typeof "") {
+          outputs[i] = validator.validateTeam(Teams.import(team));
+          teams[i] = Teams.import(team);
+        }
       })
       console.log(outputs);
-      if(outputs.length) {
+      if(outputs[0]) {
+
         let payload = "ERR Team Validation Failed : ";
         outputs.forEach((output,i) => {
           payload += `[TEAM ${i + 1}] - ${output.join(", ")} `;
@@ -349,6 +477,12 @@ app.post("/join", (req, res) => {
 
   res.status(200).send(secret);
 });
+
+DB.importDatabases();
+
+console.log(DB.data)
+
+if(!DB.data["replays"]) DB.data["replays"] = {};
 
 server.listen(process.env.PORT || 8000, () => {
   console.log(`Server started on port ${server.address().port} :)`);

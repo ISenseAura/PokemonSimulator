@@ -37,13 +37,13 @@ exports.parseBattle = (data, p1, p2, battle) => {
       if (data[i] == "|split|p1") {
         p1log.push(data[i + 1]);
         p2log.push(data[i + 2]);
-        slog.push(data[i] + 2);
+        slog.push(data[i + 2]);
 
         i = i + 2;
       } else if (data[i] == "|split|p2") {
         p1log.push(data[i + 2]);
         p2log.push(data[i + 1]);
-        slog.push(data[i] + 2);
+        slog.push(data[i + 2]);
         i = i + 2;
       } else {
         p1log.push(data[i]);
@@ -52,7 +52,7 @@ exports.parseBattle = (data, p1, p2, battle) => {
       }
     }
     console.log(slog);
-    battle.spectatorLogs.push(slog.join("\n"));
+    battle.spectatorLogs.push(`${battle.id} \n${slog.join("\n")}`);
     battle.broadcastAll(`${battle.id} \n${slog.join("\n")}`);
     battle.p1log.push(`${battle.id} \n${p1log.join("\n")}`);
     battle.p2log.push(`${battle.id} \n${p2log.join("\n")}`);
