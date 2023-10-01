@@ -51,6 +51,7 @@ exports.parseBattle = (data, p1, p2, battle) => {
         slog.push(data[i]);
       }
     }
+    
     console.log(slog);
     battle.spectatorLogs.push(`${battle.id} \n${slog.join("\n")}`);
     battle.broadcastAll(`${battle.id} \n${slog.join("\n")}`);

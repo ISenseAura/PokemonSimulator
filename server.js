@@ -15,17 +15,25 @@ const server = http.createServer(app);
 })();
 
 global.battles = {};
-
+global.guests = {};
 global.illinfo = {}; // nawty horhe
 
 app.use(cors({
-  origin: 'http://13.235.24.232:8080'
+  origin: '*'
 }));
 
 
 function generateSecret() {
   let secret = Tools.generateKey(4);
   if (battles[secret]) return generateSecret();
+  return Tools.toId(secret);
+}
+
+function generateGuestID() {
+  let name = "Guest" + Tools.generateKey(8);
+  let id = Tools.toId(name);
+
+  if (guests[secret]) return generateSecret();
   return Tools.toId(secret);
 }
 
@@ -38,10 +46,14 @@ const { TeamValidator } = require("@pkmn/sim");
 //battles["test"] =  new SingleBattle("gen7ou",false,false,false,"test");
 const wss = new WebSocket.Server({ server });
 
-wss.on("connection", (ws) => {
+wss.on("connection", (ws,req) => {
   ws.on("message", (message) => {
     message = message.toString();
    console.log(message);
+   let IP = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+
+   console.log(IP)
+   return;
 
     if (message.charAt(0) == "%") {
       let data = message.split("%");
