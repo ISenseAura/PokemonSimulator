@@ -2,3 +2,5 @@ config.js
 login.js
 node_modules
 node_modules
+
+replays/
