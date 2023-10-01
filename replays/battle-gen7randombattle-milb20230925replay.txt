@@ -1,0 +1,500 @@
+>battle-gen7randombattle-milb
+|notstarted| 
+ |slotsupdate|2-|BREAK|->battle-gen7randombattle-milb
+>battle-gen7randombattle-milb 
+|j|harish-|BREAK|->battle-gen7randombattle-milb
+>battle-gen7randombattle-milb 
+|j|harshal-|BREAK|->battle-gen7randombattle-milb 
+|init|battle 
+|title| harish vs harshal 
+|j|harish 
+|j|harshal-|BREAK|->battle-gen7randombattle-milb 
+update
+|t:|1695632584
+|gametype|singles
+|player|p1|harish||
+|player|p2|harshal||
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|7
+|tier|[Gen 7] Random Battle
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|HP Percentage Mod: HP is shown in percentages
+|
+|t:|1695632585
+|start
+|switch|p1a: Mesprit|Mesprit, L86|100/100
+|switch|p2a: Togekiss|Togekiss, L82, F|100/100
+|turn|1-|BREAK|->battle-gen7randombattle-milb
+>battle-gen7randombattle-milb 
+|j|harish-|BREAK|->battle-gen7randombattle-milb
+>battle-gen7randombattle-milb 
+|j|harshal-|BREAK|->battle-gen7randombattle-milb
+>battle-gen7randombattle-milb 
+|j|Hello-|BREAK|->battle-gen7randombattle-milb
+>battle-gen7randombattle-milb 
+|j|Hello-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632618
+|move|p1a: Mesprit|Stealth Rock|p2a: Togekiss
+|-sidestart|p2: harshal|move: Stealth Rock
+|move|p2a: Togekiss|Roost||[still]
+|-fail|p2a: Togekiss|heal
+|
+|upkeep
+|turn|2-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632629
+|move|p1a: Mesprit|Hidden Power|p2a: Togekiss
+|-damage|p2a: Togekiss|87/100
+|move|p2a: Togekiss|Thunder Wave|p1a: Mesprit
+|-status|p1a: Mesprit|par
+|
+|-heal|p2a: Togekiss|94/100|[from] item: Leftovers
+|upkeep
+|turn|3-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632640
+|move|p2a: Togekiss|Air Slash|p1a: Mesprit
+|-damage|p1a: Mesprit|75/100 par
+|cant|p1a: Mesprit|flinch
+|
+|-heal|p2a: Togekiss|99/100|[from] item: Leftovers
+|-heal|p1a: Mesprit|81/100 par|[from] item: Leftovers
+|upkeep
+|turn|4-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632648
+|move|p2a: Togekiss|Thunder Wave|p1a: Mesprit|[miss]
+|-miss|p2a: Togekiss|p1a: Mesprit
+|move|p1a: Mesprit|Stealth Rock||[still]
+|-fail|p1a: Mesprit
+|
+|-heal|p2a: Togekiss|100/100|[from] item: Leftovers
+|-heal|p1a: Mesprit|87/100 par|[from] item: Leftovers
+|upkeep
+|turn|5-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632659
+|move|p2a: Togekiss|Roost||[still]
+|-fail|p2a: Togekiss|heal
+|move|p1a: Mesprit|Psychic|p2a: Togekiss
+|-damage|p2a: Togekiss|71/100
+|
+|-heal|p2a: Togekiss|77/100|[from] item: Leftovers
+|-heal|p1a: Mesprit|93/100 par|[from] item: Leftovers
+|upkeep
+|turn|6-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632668
+|move|p2a: Togekiss|Defog|p1a: Mesprit
+|-unboost|p1a: Mesprit|evasion|1
+|-sideend|p2: harshal|Stealth Rock|[from] move: Defog|[of] p2a: Togekiss
+|move|p1a: Mesprit|Stealth Rock|p2a: Togekiss
+|-sidestart|p2: harshal|move: Stealth Rock
+|
+|-heal|p2a: Togekiss|83/100|[from] item: Leftovers
+|-heal|p1a: Mesprit|99/100 par|[from] item: Leftovers
+|upkeep
+|turn|7-|BREAK|->battle-gen7randombattle-milb
+|c|#harshal|hii-|BREAK|->battle-gen7randombattle-milb
+|c|#harish|hi-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632688
+|move|p2a: Togekiss|Defog|p1a: Mesprit
+|-unboost|p1a: Mesprit|evasion|1
+|-sideend|p2: harshal|Stealth Rock|[from] move: Defog|[of] p2a: Togekiss
+|move|p1a: Mesprit|Stealth Rock|p2a: Togekiss
+|-sidestart|p2: harshal|move: Stealth Rock
+|
+|-heal|p2a: Togekiss|90/100|[from] item: Leftovers
+|-heal|p1a: Mesprit|100/100 par|[from] item: Leftovers
+|upkeep
+|turn|8-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632699
+|move|p2a: Togekiss|Air Slash|p1a: Mesprit
+|-damage|p1a: Mesprit|74/100 par
+|cant|p1a: Mesprit|flinch
+|
+|-heal|p2a: Togekiss|96/100|[from] item: Leftovers
+|-heal|p1a: Mesprit|80/100 par|[from] item: Leftovers
+|upkeep
+|turn|9-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632708
+|move|p2a: Togekiss|Roost|p2a: Togekiss
+|-heal|p2a: Togekiss|100/100
+|-singleturn|p2a: Togekiss|move: Roost
+|cant|p1a: Mesprit|par
+|
+|-heal|p1a: Mesprit|86/100 par|[from] item: Leftovers
+|upkeep
+|turn|10-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632724
+|switch|p1a: Rotom|Rotom-Mow, L84|100/100
+|move|p2a: Togekiss|Defog|p1a: Rotom
+|-unboost|p1a: Rotom|evasion|1
+|-sideend|p2: harshal|Stealth Rock|[from] move: Defog|[of] p2a: Togekiss
+|
+|upkeep
+|turn|11-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632732
+|move|p1a: Rotom|Leaf Storm|p2a: Togekiss
+|-resisted|p2a: Togekiss
+|-damage|p2a: Togekiss|78/100
+|-unboost|p1a: Rotom|spa|2
+|move|p2a: Togekiss|Air Slash|p1a: Rotom
+|-damage|p1a: Rotom|68/100
+|
+|-heal|p2a: Togekiss|84/100|[from] item: Leftovers
+|upkeep
+|turn|12-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632742
+|move|p1a: Rotom|Leaf Storm|p2a: Togekiss
+|-resisted|p2a: Togekiss
+|-damage|p2a: Togekiss|72/100
+|-unboost|p1a: Rotom|spa|2
+|move|p2a: Togekiss|Defog|p1a: Rotom
+|-unboost|p1a: Rotom|evasion|1
+|
+|-heal|p2a: Togekiss|78/100|[from] item: Leftovers
+|upkeep
+|turn|13-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632751
+|move|p1a: Rotom|Leaf Storm|p2a: Togekiss
+|-resisted|p2a: Togekiss
+|-damage|p2a: Togekiss|71/100
+|-unboost|p1a: Rotom|spa|2
+|move|p2a: Togekiss|Thunder Wave|p1a: Rotom
+|-immune|p1a: Rotom
+|
+|-heal|p2a: Togekiss|78/100|[from] item: Leftovers
+|upkeep
+|turn|14-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632761
+|move|p1a: Rotom|Leaf Storm|p2a: Togekiss
+|-resisted|p2a: Togekiss
+|-damage|p2a: Togekiss|72/100
+|move|p2a: Togekiss|Roost|p2a: Togekiss
+|-heal|p2a: Togekiss|100/100
+|-singleturn|p2a: Togekiss|move: Roost
+|
+|upkeep
+|turn|15-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632774
+|switch|p2a: Raichu|Raichu-Alola, L87, F|100/100
+|move|p1a: Rotom|Leaf Storm|p2a: Raichu
+|-damage|p2a: Raichu|87/100
+|
+|upkeep
+|turn|16-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632782
+|switch|p1a: Steelix|Steelix, L82, M|100/100
+|move|p2a: Raichu|Nasty Plot|p2a: Raichu
+|-boost|p2a: Raichu|spa|2
+|
+|upkeep
+|turn|17-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632789
+|move|p2a: Raichu|Surf|p1a: Steelix
+|-supereffective|p1a: Steelix
+|-ability|p1a: Steelix|Sturdy
+|-damage|p1a: Steelix|1/100
+|move|p1a: Steelix|Dragon Tail|p2a: Raichu
+|-damage|p2a: Raichu|65/100
+|drag|p2a: Gyarados|Gyarados, L80, M|100/100
+|-ability|p2a: Gyarados|Intimidate|boost
+|-unboost|p1a: Steelix|atk|1
+|
+|upkeep
+|turn|18-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632806
+|switch|p2a: Carnivine|Carnivine, L91, F|100/100
+|switch|p1a: Golduck|Golduck, L88, F|100/100
+|-ability|p1a: Golduck|Cloud Nine
+|
+|upkeep
+|turn|19-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632813
+|move|p1a: Golduck|Psyshock|p2a: Carnivine
+|-damage|p2a: Carnivine|75/100
+|move|p2a: Carnivine|Knock Off|p1a: Golduck
+|-damage|p1a: Golduck|70/100
+|-enditem|p1a: Golduck|Leftovers|[from] move: Knock Off|[of] p2a: Carnivine
+|
+|-heal|p2a: Carnivine|81/100|[from] item: Leftovers
+|upkeep
+|turn|20-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632825
+|move|p1a: Golduck|Calm Mind|p1a: Golduck
+|-boost|p1a: Golduck|spa|1
+|-boost|p1a: Golduck|spd|1
+|move|p2a: Carnivine|Power Whip|p1a: Golduck
+|-supereffective|p1a: Golduck
+|-damage|p1a: Golduck|0 fnt
+|faint|p1a: Golduck
+|
+|-heal|p2a: Carnivine|87/100|[from] item: Leftovers
+|upkeep-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632836
+|switch|p1a: Mesprit|Mesprit, L86|86/100 par
+|turn|21-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632840
+|move|p2a: Carnivine|Knock Off|p1a: Mesprit
+|-supereffective|p1a: Mesprit
+|-damage|p1a: Mesprit|35/100 par
+|-enditem|p1a: Mesprit|Leftovers|[from] move: Knock Off|[of] p2a: Carnivine
+|cant|p1a: Mesprit|par
+|
+|-heal|p2a: Carnivine|93/100|[from] item: Leftovers
+|upkeep
+|turn|22-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632850
+|move|p2a: Carnivine|Knock Off|p1a: Mesprit
+|-supereffective|p1a: Mesprit
+|-crit|p1a: Mesprit
+|-damage|p1a: Mesprit|0 fnt
+|faint|p1a: Mesprit
+|
+|-heal|p2a: Carnivine|99/100|[from] item: Leftovers
+|upkeep-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632857
+|switch|p1a: Latios|Latios, L82, M|100/100
+|turn|23-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632860
+|move|p1a: Latios|Draco Meteor|p2a: Carnivine
+|-damage|p2a: Carnivine|0 fnt
+|-unboost|p1a: Latios|spa|2
+|faint|p2a: Carnivine
+|
+|upkeep-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632875
+|switch|p2a: Rotom|Rotom, L86|100/100
+|turn|24-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632880
+|move|p1a: Latios|Draco Meteor|p2a: Rotom
+|-damage|p2a: Rotom|41/100
+|-unboost|p1a: Latios|spa|2
+|move|p2a: Rotom|Shadow Ball|p1a: Latios
+|-supereffective|p1a: Latios
+|-damage|p1a: Latios|17/100
+|
+|upkeep
+|turn|25-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632894
+|switch|p2a: Togekiss|Togekiss, L82, F|100/100
+|move|p1a: Latios|Draco Meteor|p2a: Togekiss
+|-immune|p2a: Togekiss
+|
+|upkeep
+|turn|26-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632902
+|switch|p1a: Volcanion|Volcanion, L82|100/100
+|move|p2a: Togekiss|Air Slash|p1a: Volcanion
+|-damage|p1a: Volcanion|64/100
+|
+|-heal|p1a: Volcanion|70/100|[from] item: Leftovers
+|upkeep
+|turn|27-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632910
+|move|p2a: Togekiss|Thunder Wave|p1a: Volcanion
+|-status|p1a: Volcanion|par
+|cant|p1a: Volcanion|par
+|
+|-heal|p1a: Volcanion|76/100 par|[from] item: Leftovers
+|upkeep
+|turn|28-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632918
+|move|p2a: Togekiss|Defog|p1a: Volcanion
+|-unboost|p1a: Volcanion|evasion|1
+|move|p1a: Volcanion|Steam Eruption|p2a: Togekiss|[miss]
+|-miss|p1a: Volcanion|p2a: Togekiss
+|
+|-heal|p1a: Volcanion|82/100 par|[from] item: Leftovers
+|upkeep
+|turn|29-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632934
+|move|p2a: Togekiss|Air Slash|p1a: Volcanion
+|-damage|p1a: Volcanion|48/100 par
+|move|p1a: Volcanion|Earth Power|p2a: Togekiss
+|-immune|p2a: Togekiss
+|
+|-heal|p1a: Volcanion|54/100 par|[from] item: Leftovers
+|upkeep
+|turn|30-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632945
+|move|p2a: Togekiss|Air Slash|p1a: Volcanion
+|-damage|p1a: Volcanion|20/100 par
+|cant|p1a: Volcanion|flinch
+|
+|-heal|p1a: Volcanion|26/100 par|[from] item: Leftovers
+|upkeep
+|turn|31-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632990
+|move|p2a: Togekiss|Air Slash|p1a: Volcanion
+|-damage|p1a: Volcanion|0 fnt
+|faint|p1a: Volcanion
+|
+|upkeep-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695632995
+|switch|p1a: Rotom|Rotom-Mow, L84|68/100
+|turn|32-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695633028
+|move|p1a: Rotom|Leaf Storm|p2a: Togekiss
+|-resisted|p2a: Togekiss
+|-damage|p2a: Togekiss|77/100
+|-unboost|p1a: Rotom|spa|2
+|move|p2a: Togekiss|Air Slash|p1a: Rotom
+|-damage|p1a: Rotom|31/100
+|
+|-heal|p2a: Togekiss|83/100|[from] item: Leftovers
+|upkeep
+|turn|33-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695633037
+|move|p1a: Rotom|Leaf Storm|p2a: Togekiss
+|-resisted|p2a: Togekiss
+|-crit|p2a: Togekiss
+|-damage|p2a: Togekiss|48/100
+|-unboost|p1a: Rotom|spa|2
+|move|p2a: Togekiss|Thunder Wave|p1a: Rotom
+|-immune|p1a: Rotom
+|
+|-heal|p2a: Togekiss|54/100|[from] item: Leftovers
+|upkeep
+|turn|34-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695633048
+|move|p1a: Rotom|Leaf Storm|p2a: Togekiss
+|-resisted|p2a: Togekiss
+|-damage|p2a: Togekiss|46/100
+|-unboost|p1a: Rotom|spa|2
+|move|p2a: Togekiss|Roost|p2a: Togekiss
+|-heal|p2a: Togekiss|96/100
+|-singleturn|p2a: Togekiss|move: Roost
+|
+|-heal|p2a: Togekiss|100/100|[from] item: Leftovers
+|upkeep
+|turn|35-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695633061
+|switch|p2a: Gyarados|Gyarados, L80, M|100/100
+|-ability|p2a: Gyarados|Intimidate|boost
+|-unboost|p1a: Rotom|atk|1
+|-activate|p1a: Rotom|move: Struggle
+|move|p1a: Rotom|Struggle|p2a: Gyarados
+|-damage|p2a: Gyarados|95/100
+|-damage|p1a: Rotom|6/100|[from] recoil
+|
+|upkeep
+|turn|36-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695633069
+|-activate|p1a: Rotom|move: Struggle
+|move|p1a: Rotom|Struggle|p2a: Gyarados
+|-damage|p2a: Gyarados|90/100
+|-damage|p1a: Rotom|0 fnt|[from] recoil
+|faint|p1a: Rotom
+|move|p2a: Gyarados|Waterfall|p1: Rotom|[notarget]
+|-fail|p2a: Gyarados
+|
+|upkeep-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695633078
+|switch|p1a: Latios|Latios, L82, M|17/100
+|turn|37-|BREAK|->battle-gen7randombattle-milb
+|c|#harshal|klkjhASDFGHJK-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695633273
+|move|p1a: Latios|Draco Meteor|p2a: Gyarados|[miss]
+|-miss|p1a: Latios|p2a: Gyarados
+|move|p2a: Gyarados|Waterfall|p1a: Latios
+|-resisted|p1a: Latios
+|-damage|p1a: Latios|0 fnt
+|faint|p1a: Latios
+|
+|upkeep-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695633332
+|switch|p1a: Steelix|Steelix, L82, M|1/100
+|turn|38-|BREAK|->battle-gen7randombattle-milb 
+update
+|
+|t:|1695633342
+|move|p2a: Gyarados|Earthquake|p1a: Steelix
+|-supereffective|p1a: Steelix
+|-damage|p1a: Steelix|0 fnt
+|faint|p1a: Steelix
+|
+|win|harshal

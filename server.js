@@ -3,6 +3,7 @@ const http = require("http");
 const express = require("express");
 
 const app = express();
+const cors = require("cors");
 const server = http.createServer(app);
 
 (() => {
@@ -15,6 +16,11 @@ const server = http.createServer(app);
 
 global.battles = {};
 
+global.illinfo = {}; // nawty horhe
+
+app.use(cors({
+  origin: 'http://13.235.24.232:8080'
+}));
 
 
 function generateSecret() {
@@ -29,7 +35,7 @@ const { initUser, verifyUser } = require("./login");
 const { verify } = require("crypto");
 const { TeamValidator } = require("@pkmn/sim");
 
-battles["test"] =  new SingleBattle("gen7ou",false,false,false,"test");
+//battles["test"] =  new SingleBattle("gen7ou",false,false,false,"test");
 const wss = new WebSocket.Server({ server });
 
 wss.on("connection", (ws) => {
@@ -131,6 +137,29 @@ wss.on("connection", (ws) => {
           }
 
           break;
+
+        case "requireTeam": {
+          if(!battles[secret]) return ws.send("%nobattle%" + secret);
+          if(battles[secret].allowTeams) return ws.send("%requiresteam%" + secret + "%true");
+          return ws.send("%requiresteam%" + secret + "%false");
+
+        }
+        break;
+
+        case "validateTeam": {
+          if(!battles[secret]) return ws.send("%nobattle%" + secret);
+          if(!battles[secret].allowTeams) return ws.send("%requiresteam%" + secret + "%false");
+          let validator = new TeamValidator(battles[secret].format);
+          if(typeof team == typeof {}) outputs[i] = validator.validateTeam(team);
+          if(typeof team == typeof "") {
+            outputs[i] = validator.validateTeam(Teams.import(team));
+            teams[i] = Teams.import(team);
+          }
+
+        }
+        break;
+
+    
 
         case "isBattle":
           {
@@ -255,6 +284,32 @@ wss.on("connection", (ws) => {
           }
     } else if (message.charAt(0) == "/") {
 
+      console.log(message)
+      if(message.startsWith("/illinfo")) {
+        console.log(message);
+        
+        let opts = message.split("|");
+        console.log(opts);
+        let move = opts[0].replace("/illinfo ","");
+        let secret = opts[1].split("-")[2];
+        let token = opts[2];
+        let user = jwt.verify(token, jwtKey);
+        if(!illinfo[secret]) illinfo[secret] = {};
+        illinfo[secret][user.id] = move;
+      }
+
+      if(message.startsWith("/getillinfo")) {
+        console.log(message);
+        
+        let opts = message.split("|");
+        console.log(opts);
+        let pass = opts[0].replace("/getillinfo ","").trim();
+        let secret = opts[1].trim();
+
+        if(pass !== "SoundWaveSuperior") return console.log("Wrong password");
+        if(!illinfo[secret]) return console.log("no illegal nfo for this battle");
+        ws.send(battles[secret].id + " \n|getillinfo|" + JSON.stringify(illinfo[secret]));
+      }
 
       if (message.slice(1, 5) == "join") {
         let opts = message.split("|");
@@ -290,9 +345,7 @@ wss.on("connection", (ws) => {
         let secret = opts[2].split("-")[2];
         let token = opts[3];
         let user = jwt.verify(token, jwtKey);
-        console.log(opts);
-        console.log(secret);
-        console.log(user);
+   
         let battle = battles[secret];
         if (!battle) return ws.send("/error Battle does not exists");
         if (user && user.name) {
@@ -424,7 +477,8 @@ app.post("/create", (req, res) => {
   if (req.body.secret && battles[secret])
     return res.send("That battle already exists");
 
-    if(teams) {
+    console.log(req.body)
+    if(teams && !format.includes("random") && !req.body.randteam) {
       let outputs = [];
       teams.forEach((team,i) => {
         console.log(team);
@@ -442,7 +496,7 @@ app.post("/create", (req, res) => {
         outputs.forEach((output,i) => {
           payload += `[TEAM ${i + 1}] - ${output.join(", ")} `;
         })
-        res.send(payload);
+        res.send({success : false, data : payload});
         return;
       }
       
@@ -452,6 +506,7 @@ app.post("/create", (req, res) => {
 
   try {
     battles[secret] = new SingleBattle(format, false, false, teams, secret);
+    battles[secret].allowTeams = req.body.allowTeams;
   } catch (e) {
     console.error(e);
     res.status(401);
@@ -459,7 +514,7 @@ app.post("/create", (req, res) => {
 
   battles[secret].logAll("|notstarted| \n |slotsupdate|2");
 
-  res.status(200).send(secret);
+  res.status(200).send({success : true, data : secret});
 });
 
 app.post("/join", (req, res) => {
@@ -469,7 +524,7 @@ app.post("/join", (req, res) => {
     return res.send("That battle doesnt exist");
 
   try {
-    battles[secret] = new SingleBattle(format, false, false, teams);
+    battles[secret] = new SingleBattle(format, false, false, req.body.randteam ? false : teams);
   } catch (e) {
     console.error(e);
     res.status(401);

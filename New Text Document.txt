@@ -1,0 +1,126 @@
+const jwt = require("jsonwebtoken");
+const { User } = require("./users");
+
+const bcrypt = require("bcrypt");
+const saltRounds = 10
+
+const jwtKey = Config.jwtKey;
+//const jwtExpirySeconds = 300
+
+var users = database.ref("users");
+
+exports.signup = async (username, password, socket) => {
+  if (!username || !password) return;
+  let user = new User(username, password, socket);
+
+  console.log(user);
+  let user1 = users.child(Tools.toId(username));
+  let exists = false;
+
+  console.log(user1);
+  let result = await user1.once("value").then(async (snap) => {
+    if (snap.exists()) {
+      const userData = snap.val();
+      console.log("Exists");
+      return false;
+    } else {
+      user.setPassword().then((hash) => {
+        user.password = hash;
+        let oneUser = users.child(user.id);
+        oneUser.update(
+         user,
+          (err) => {
+            if (err) {
+              console.log(err);
+            } else {
+        
+               this.initUser(user);
+          
+            }
+          }
+        );
+      });
+     // return true;
+    }
+  });
+};
+
+
+exports.login = async (username, password, socket) => {
+    if(!username || !password) return;
+    let user1 = users.child(Tools.toId(username));
+  
+    let result = await user1.once("value").then(async (snap) => {
+      if (snap.exists()) {
+        const userData = snap.val();
+        console.log("exists");
+    let salt = await bcrypt.genSalt(saltRounds);
+    let verify = await bcrypt.compare(password,userData.password)
+ 
+    if(!verify) return "Wrong password";
+    return verify;
+      }
+      else {
+        return false;
+      }
+    }); 
+
+    return result;
+
+}
+
+exports.initUser = async (user,socket) => {
+  console.log("Initializing user : " + user);
+  if (typeof user == typeof {}) return (Users[user.id] = user);
+  if (typeof user == typeof "") {
+   let user1 = users.child(Tools.toId(user));
+    let snap1 = await user1.once("value").then( (snap) => {
+       if(snap.exists()) {
+        
+          Users[user] =  snap.val();
+  
+        const token = jwt.sign(Users[user], jwtKey, {
+          algorithm: "HS256",
+        });
+        if(socket) Users[user].socket = socket;
+        Users[user].token = token;
+        return token;
+    }
+    
+    });
+    return snap1;
+   
+
+  }
+};
+
+exports.verifyUser = (user, token) => {
+  if (!token || !user) return;
+  let payload;
+
+  try {
+    payload = jwt.verify(token, jwtKey);
+    if (typeof user == typeof {}) {
+      if (user.id == payload.id) return true;
+      return false;
+    }
+    if (Tools.toId(user) == payload.id) return true;
+    return false;
+  } catch (e) {
+    return "Token not valid";
+  }
+};
+
+
+exports.getUser = (token) => {
+  if (!token) return;
+  let payload;
+
+  try {
+    payload = jwt.verify(token, jwtKey);
+    return payload;
+  } catch (e) {
+    return "Token not valid";
+  }
+};
+

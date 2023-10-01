@@ -1,0 +1,77 @@
+>battle-gen7ou-5shf
+|notstarted| 
+ |slotsupdate|2-|BREAK|->battle-gen7ou-5shf
+>battle-gen7ou-5shf 
+|j|test2-|BREAK|->battle-gen7ou-5shf
+>battle-gen7ou-5shf 
+|j|test2-|BREAK|->battle-gen7ou-5shf
+>battle-gen7ou-5shf 
+|j|lucario-|BREAK|->battle-gen7ou-5shf 
+|init|battle 
+|title| test2 vs lucario 
+|j|test2 
+|j|lucario-|BREAK|->battle-gen7ou-5shf 
+update
+|t:|1695401047
+|gametype|singles
+|player|p1|test2||
+|player|p2|lucario||
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|7
+|tier|[Gen 7] OU
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Moody Clause: Moody is banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|clearpoke
+|poke|p1|Toxapex, F|item
+|poke|p1|Celesteela|item
+|poke|p1|Greninja-Ash, M|item
+|poke|p1|Garchomp, F|item
+|poke|p1|Tapu Bulu|item
+|poke|p1|Tornadus-Therian, M|item
+|poke|p2|Toxapex, F|item
+|poke|p2|Celesteela|item
+|poke|p2|Greninja-Ash, M|item
+|poke|p2|Garchomp, F|item
+|poke|p2|Tapu Bulu|item
+|poke|p2|Tornadus-Therian, M|item
+|teampreview-|BREAK|->battle-gen7ou-5shf
+>battle-gen7ou-5shf 
+|j|lucario-|BREAK|->battle-gen7ou-5shf 
+update
+|
+|t:|1695401061
+|start
+|switch|p1a: Celesteela|Celesteela|100/100
+|switch|p2a: Tapu Bulu|Tapu Bulu|100/100
+|-fieldstart|move: Grassy Terrain|[from] ability: Grassy Surge|[of] p2a: Tapu Bulu
+|turn|1-|BREAK|->battle-gen7ou-5shf 
+update
+|
+|t:|1695401082
+|switch|p1a: Tapu Bulu|Tapu Bulu|100/100
+|move|p2a: Tapu Bulu|Superpower|p1a: Tapu Bulu
+|-resisted|p1a: Tapu Bulu
+|-damage|p1a: Tapu Bulu|69/100
+|-unboost|p2a: Tapu Bulu|atk|1
+|-unboost|p2a: Tapu Bulu|def|1
+|
+|-heal|p1a: Tapu Bulu|76/100|[from] Grassy Terrain
+|upkeep
+|turn|2-|BREAK|->battle-gen7ou-5shf
+>battle-gen7ou-5shf 
+|c|BATTLE|*test2 forfeitted the battle*-|BREAK|->battle-gen7ou-5shf 
+update
+|
+|win|lucario-|BREAK|->battle-gen7ou-5shf
+>battle-gen7ou-5shf 
+|j|lucario-|BREAK|->battle-gen7ou-5shf
+>battle-gen7ou-5shf 
+|j|lucario-|BREAK|->battle-gen7ou-5shf
+|c|#lucario|hi

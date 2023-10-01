@@ -125,7 +125,7 @@ class SingleBattle {
     this.broadcastAll(msg);
   }
 
-  addPlayer(p) {
+  addPlayer(p,team) {
      console.log("Adding Player " + p.name);
     let id = Tools.random(2) + 1;
 
@@ -145,7 +145,7 @@ class SingleBattle {
           p.name,
           p.id,
           "p1",
-          this.teams ? this.teams[0] : false,
+          team ? team : ( this.teams ? this.teams[0] : false ),
           p.socket
         );
     }
@@ -157,7 +157,7 @@ class SingleBattle {
           p.name,
           p.id,
           "p2",
-          this.teams ? this.teams[1] : false,
+          team ? team : (this.teams ? this.teams[1] : false),
           p.socket
         );
       }

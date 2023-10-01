@@ -1,0 +1,224 @@
+>battle-gen7randombattle-wwwx
+|notstarted| 
+ |slotsupdate|2-|BREAK|->battle-gen7randombattle-wwwx
+>battle-gen7randombattle-wwwx 
+|j|test2-|BREAK|->battle-gen7randombattle-wwwx
+>battle-gen7randombattle-wwwx 
+|j|test2-|BREAK|->battle-gen7randombattle-wwwx
+>battle-gen7randombattle-wwwx 
+|j|Hello-|BREAK|->battle-gen7randombattle-wwwx 
+|init|battle 
+|title| test2 vs Hello 
+|j|test2 
+|j|Hello-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|t:|1695400376
+|gametype|singles
+|player|p1|test2||
+|player|p2|Hello||
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|7
+|tier|[Gen 7] Random Battle
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|HP Percentage Mod: HP is shown in percentages
+|
+|t:|1695400379
+|start
+|switch|p1a: Reuniclus|Reuniclus, L85, F|100/100
+|switch|p2a: Garchomp|Garchomp, L80, M|100/100
+|turn|1-|BREAK|->battle-gen7randombattle-wwwx
+>battle-gen7randombattle-wwwx 
+|j|Hello-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400402
+|move|p2a: Garchomp|Swords Dance|p2a: Garchomp
+|-boost|p2a: Garchomp|atk|2
+|move|p1a: Reuniclus|Shadow Ball|p2a: Garchomp
+|-damage|p2a: Garchomp|70/100
+|
+|upkeep
+|turn|2-|BREAK|->battle-gen7randombattle-wwwx
+|c|#Hello|Sup-|BREAK|->battle-gen7randombattle-wwwx
+|c|#test2|sup-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400435
+|switch|p1a: Gyarados|Gyarados, L80, F|100/100
+|-ability|p1a: Gyarados|Intimidate|boost
+|-unboost|p2a: Garchomp|atk|1
+|move|p2a: Garchomp|Stone Edge|p1a: Gyarados
+|-supereffective|p1a: Gyarados
+|-damage|p1a: Gyarados|0 fnt
+|faint|p1a: Gyarados
+|
+|upkeep-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400450
+|switch|p1a: Toxicroak|Toxicroak, L84, F|100/100
+|turn|3-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400456
+|move|p2a: Garchomp|Earthquake|p1a: Toxicroak
+|-supereffective|p1a: Toxicroak
+|-crit|p1a: Toxicroak
+|-damage|p1a: Toxicroak|0 fnt
+|faint|p1a: Toxicroak
+|
+|upkeep-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400459
+|switch|p1a: Ninjask|Ninjask, L88, F|100/100
+|turn|4-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400464
+|move|p1a: Ninjask|U-turn|p2a: Garchomp
+|-damage|p2a: Garchomp|29/100
+|-damage|p1a: Ninjask|88/100|[from] ability: Rough Skin|[of] p2a: Garchomp
+|-damage|p1a: Ninjask|72/100|[from] item: Rocky Helmet|[of] p2a: Garchomp-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400469
+|switch|p1a: Rapidash|Rapidash, L88, F|100/100|[from] U-turn
+|move|p2a: Garchomp|Stone Edge|p1a: Rapidash
+|-supereffective|p1a: Rapidash
+|-damage|p1a: Rapidash|0 fnt
+|faint|p1a: Rapidash
+|
+|upkeep-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400471
+|switch|p1a: Archeops|Archeops, L87, M|100/100
+|turn|5-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400479
+|move|p1a: Archeops|Head Smash|p2a: Garchomp
+|-resisted|p2a: Garchomp
+|-damage|p2a: Garchomp|0 fnt
+|-damage|p1a: Archeops|88/100|[from] ability: Rough Skin|[of] p2a: Garchomp
+|-damage|p1a: Archeops|72/100|[from] item: Rocky Helmet|[of] p2a: Garchomp
+|faint|p2a: Garchomp
+|-damage|p1a: Archeops|55/100|[from] Recoil
+|
+|upkeep-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400483
+|switch|p2a: Ludicolo|Ludicolo, L89, F|100/100
+|turn|6-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400491
+|move|p1a: Archeops|Head Smash|p2a: Ludicolo
+|-damage|p2a: Ludicolo|9/100
+|-damage|p1a: Archeops|7/100|[from] Recoil
+|move|p2a: Ludicolo|Scald|p1a: Archeops
+|-supereffective|p1a: Archeops
+|-damage|p1a: Archeops|0 fnt
+|faint|p1a: Archeops
+|-damage|p2a: Ludicolo|0 fnt|[from] item: Life Orb
+|faint|p2a: Ludicolo
+|
+|upkeep-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400518
+|switch|p1a: Reuniclus|Reuniclus, L85, F|100/100
+|switch|p2a: Regice|Regice, L88|100/100
+|turn|7-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400524
+|move|p2a: Regice|Thunderbolt|p1a: Reuniclus
+|-damage|p1a: Reuniclus|78/100
+|move|p1a: Reuniclus|Focus Blast|p2a: Regice
+|-supereffective|p2a: Regice
+|-damage|p2a: Regice|56/100
+|
+|-heal|p2a: Regice|62/100|[from] item: Leftovers
+|upkeep
+|turn|8-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400534
+|move|p2a: Regice|Ice Beam|p1a: Reuniclus
+|-damage|p1a: Reuniclus|48/100
+|move|p1a: Reuniclus|Focus Blast|p2a: Regice
+|-supereffective|p2a: Regice
+|-damage|p2a: Regice|9/100
+|
+|-heal|p2a: Regice|15/100|[from] item: Leftovers
+|upkeep
+|turn|9-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400543
+|move|p2a: Regice|Thunderbolt|p1a: Reuniclus
+|-damage|p1a: Reuniclus|27/100
+|move|p1a: Reuniclus|Focus Blast|p2a: Regice|[miss]
+|-miss|p1a: Reuniclus|p2a: Regice
+|
+|-heal|p2a: Regice|21/100|[from] item: Leftovers
+|upkeep
+|turn|10-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400550
+|move|p2a: Regice|Thunderbolt|p1a: Reuniclus
+|-damage|p1a: Reuniclus|4/100
+|move|p1a: Reuniclus|Focus Blast|p2a: Regice
+|-supereffective|p2a: Regice
+|-damage|p2a: Regice|0 fnt
+|faint|p2a: Regice
+|
+|upkeep-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400552
+|switch|p2a: Solgaleo|Solgaleo, L76|100/100
+|turn|11-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400559
+|move|p2a: Solgaleo|Sunsteel Strike|p1a: Reuniclus
+|-damage|p1a: Reuniclus|0 fnt
+|faint|p1a: Reuniclus
+|
+|upkeep-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400565
+|switch|p1a: Ninjask|Ninjask, L88, F|72/100
+|turn|12-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400575
+|move|p1a: Ninjask|Leech Life|p2a: Solgaleo
+|-damage|p2a: Solgaleo|61/100
+|-heal|p1a: Ninjask|99/100|[from] drain|[of] p2a: Solgaleo
+|move|p2a: Solgaleo|Sunsteel Strike|p1a: Ninjask
+|-damage|p1a: Ninjask|26/100
+|
+|-heal|p2a: Solgaleo|67/100|[from] item: Leftovers
+|-ability|p1a: Ninjask|Speed Boost|boost
+|-boost|p1a: Ninjask|spe|1
+|upkeep
+|turn|13-|BREAK|->battle-gen7randombattle-wwwx 
+update
+|
+|t:|1695400581
+|move|p1a: Ninjask|Leech Life|p2a: Solgaleo
+|-damage|p2a: Solgaleo|31/100
+|-heal|p1a: Ninjask|50/100|[from] drain|[of] p2a: Solgaleo
+|move|p2a: Solgaleo|Sunsteel Strike|p1a: Ninjask
+|-damage|p1a: Ninjask|0 fnt
+|faint|p1a: Ninjask
+|
+|win|Hello

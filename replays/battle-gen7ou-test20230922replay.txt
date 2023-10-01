@@ -1,0 +1,89 @@
+>battle-gen7ou-test
+>battle-gen7ou-test 
+|j|Hello-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|Hello-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|test2-|BREAK|->battle-gen7ou-test 
+|init|battle 
+|title| Hello vs test2 
+|j|Hello 
+|j|test2-|BREAK|->battle-gen7ou-test 
+update
+|t:|1695359554
+|gametype|singles
+|player|p1|Hello||
+|player|p2|test2||
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|7
+|tier|[Gen 7] OU
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Moody Clause: Moody is banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|clearpoke
+|poke|p1|Klinklang, L86|item
+|poke|p1|Palkia, L76|item
+|poke|p1|Houndoom, L84, F|item
+|poke|p1|Blacephalon, L80|item
+|poke|p1|Golduck, L88, M|item
+|poke|p1|Reuniclus, L85, M|item
+|poke|p2|Kabutops, L88, M|item
+|poke|p2|Arceus-*, L75|item
+|poke|p2|Dusknoir, L88, F|item
+|poke|p2|Skarmory, L80, F|item
+|poke|p2|Ninetales-Alola, L82, M|item
+|poke|p2|Umbreon, L84, M|item
+|teampreview-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|test2-|BREAK|->battle-gen7ou-test 
+update
+|
+|t:|1695359573
+|start
+|switch|p1a: Klinklang|Klinklang, L86|100/100
+|switch|p2a: Umbreon|Umbreon, L84, M|100/100
+|turn|1-|BREAK|->battle-gen7ou-test 
+update
+|
+|t:|1695359598
+|move|p1a: Klinklang|Shift Gear|p1a: Klinklang
+|-boost|p1a: Klinklang|spe|2
+|-boost|p1a: Klinklang|atk|1
+|move|p2a: Umbreon|Wish|p2a: Umbreon
+|
+|upkeep
+|turn|2-|BREAK|->battle-gen7ou-test
+|c|#Hello|Hii-|BREAK|->battle-gen7ou-test
+|c|#test2|hii-|BREAK|->battle-gen7ou-test 
+update
+|
+|t:|1695359654
+|switch|p1a: Reuniclus|Reuniclus, L85, M|100/100
+|move|p2a: Umbreon|Toxic|p1a: Reuniclus
+|-status|p1a: Reuniclus|tox
+|
+|upkeep
+|turn|3-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|c|BATTLE|*test2 forfeitted the battle*-|BREAK|->battle-gen7ou-test 
+update
+|
+|win|Hello-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|Hello-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|Hello-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|test2-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|test2-|BREAK|->battle-gen7ou-test
+|c|#test2|hi-|BREAK|->battle-gen7ou-test
+>battle-gen7ou-test 
+|j|test2-|BREAK|->battle-gen7ou-test
+|c|#test2|hi
