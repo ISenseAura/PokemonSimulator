@@ -3,14 +3,35 @@ const bcrypt = require("bcryptjs");
 const Tools = require("js-helpertools");
 const saltRounds = Config.salt;
 
+
+class Guest {
+  constructor(name, ws,agent) {
+    this.id = Tools.toId(name);
+    this.name = name;
+    this.socket = this.ws = ws;
+    this.agent = agent ? agent : null;
+    this.ip = agent ? agent.ip : null;
+
+  }
+
+  delete() {
+    delete Guests[this.id]
+  }
+}
+
+
+
 class User {
-  constructor(name, password, socket) {
+  constructor(name, password, socket, agent) {
     this.name = name;
     this.id = Tools.toId(name);
     this.userID = Tools.toId(name);
     this.socket = socket ? socket : null;
     this.socketID = null;
     this.avatar = 1;
+
+    this.agent = agent ? agent : null;
+    this.ip = agent ? agent.ip : null;
 
     this.password = password;
 
@@ -44,6 +65,8 @@ class User {
 let user = new User("mayur","1233");
 
 exports.User = User;
+
+exports.Guest = Guest;
 
 user.setPassword().then((hash) => {
   console.log(hash);

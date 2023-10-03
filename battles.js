@@ -177,7 +177,7 @@ class SingleBattle {
     if (!this.users || !Object.keys(this.users).length) return;
     console.log("TeSt");
     for (let user in this.users) {
-      console.log(this.users[user]);
+     // console.log(this.users[user]);
       if (this.users[user]) this.users[user].socket.send(msg);
     }
     this.guests.forEach((ws) => {

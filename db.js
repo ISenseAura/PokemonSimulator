@@ -2,6 +2,7 @@ const fs = require("fs");
 
 var DB = {
   data: [],
+  guests: {},
   users: [],
 
   importDatabase: function(roomid) {
@@ -21,10 +22,21 @@ var DB = {
       if (!file.endsWith(".txt")) continue;
       this.importDatabase(file.substr(0, file.indexOf(".txt")));
     }
+
+    let file = JSON.parse(fs.readFileSync("./guests.json"));
+    this.guests = file;
+
+    
   },
 
   exportDatabase: function(name) {
-    if (!(name in this.data)) return;
+    if (!(name in this.data) && name != "guests") return;
+
+    if(name == "guests") return fs.writeFileSync(
+      "./" + name + ".json",
+    JSON.stringify(this.guests)
+    );
+
     fs.writeFileSync(
       "./replays/" + name + ".txt",
     this.data[name]
