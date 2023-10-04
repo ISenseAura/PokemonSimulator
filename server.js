@@ -110,7 +110,9 @@ wss.on("connection", (ws, req) => {
                 let c = `${battles[secret].id} \n|j|${user.name}`;
                 battles[secret].sendAllExcept(c, false);
               } else {
+                console.log("Adding Spect");
                 if (token.includes("uest") || token.length < 10) return;
+                console.log("Adding Spectator")
                 let u = jwt.verify(token, jwtKey);
                 let c = `${battles[secret].id} \n|j|${u.name}`;
                 battles[secret].sendAllExcept(c, false);
@@ -127,13 +129,16 @@ wss.on("connection", (ws, req) => {
             } else {
               let user = jwt.verify(token, jwtKey);
               if (!user) return ws.send("/error User not authenticated");
-              battles[secret].addPlayer({
+             let res = battles[secret].addPlayer({
                 name: user.name,
                 id: user.id,
                 teams: false,
                 socket: ws,
               });
 
+              if(res && res == "spect") {
+                ws.send("%notpart%" + battles[secret].id);
+              }
           
               let isPlayer = battles[secret].hasPlayer(user.id);
               if (isPlayer) battles[secret][isPlayer].socket = ws;
@@ -287,6 +292,8 @@ wss.on("connection", (ws, req) => {
               delete user.password;
               //   console.log(user);
               JSON.stringify(Users[data[2].trim()]);
+              if(Users[token]) Users[token].send("%sessionexpired%");
+              Users[token] = ws;
               ws.send("%tokenverified%" + JSON.stringify(user));
             } else {
               ws.send("%tokenexpired%");

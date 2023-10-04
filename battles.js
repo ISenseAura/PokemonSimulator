@@ -164,6 +164,9 @@ class SingleBattle {
     
   
     if (this.p1.id == this.p2.id) delete this.p2;
+    if(this.p1 && this.p2) {
+      if(this.p1.id != p.id && this.p2.id != p.id) return "spect";
+    }
   }
 
   hasPlayer(id) {
@@ -199,9 +202,7 @@ class SingleBattle {
   }
 
   makeMove(by, data) {
-    console.log(this.p1);
-    console.log(this.p2);
-    console.log(data);
+
     //  this.inputLogs.push(`>${by} ${data}`)
     if (this.p1.id == by.id) {
       this.write(`>p1 ${data.replace("/", "")}`);
