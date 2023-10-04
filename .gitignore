@@ -2,5 +2,6 @@ config.js
 login.js
 node_modules
 node_modules
-
+guests.json
+useragents.json
 replays/

@@ -30,6 +30,8 @@ class SingleBattle {
     this.users = {};
     this.guests = [];
 
+    this.winner = null;
+
     this.isStarted = false;
     this.teams = teams;
 
@@ -58,6 +60,7 @@ class SingleBattle {
       for await (const output of this.battleStream) {
         // console.log(output + "\n\n");
         this.outputLogs.push(output);
+        if(output.startsWith("|win|")) this.winner = output.split("|")[2];
         if(output.startsWith("end")) return;
         if (this.isStarted) {
           if (output.includes("sideupdate") || output.includes("update")) {
@@ -79,7 +82,7 @@ class SingleBattle {
   }
 
   init() {
-    console.log(this.p1.id + this.p2.id)
+   
     if (!(this.p1 && this.p2)) return console.log("not all players are joined");
     this.p1.socket.send(
       `${this.id} \n|init|battle \n|title| ${this.p1.name} vs ${this.p2.name} \n|j|${this.p1.name} \n|j|${this.p2.name}`
@@ -195,8 +198,10 @@ class SingleBattle {
     this.p1.socket.send(c);
     this.p2.socket.send(c);
     if (this.p1.id == user.id) {
+      this.winner = this.p2.name;
       this.write(">forcewin p2");
     } else {
+      this.winner = this.p1.name;
       this.write(">forcewin p1");
     }
   }

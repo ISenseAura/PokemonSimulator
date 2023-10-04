@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 var DB = {
-  data: [],
+  data: {},
   guests: {},
   users: [],
 
@@ -26,16 +26,24 @@ var DB = {
     let file = JSON.parse(fs.readFileSync("./guests.json"));
     this.guests = file;
 
+    let file1 = JSON.parse(fs.readFileSync("./useragents.json"));
+    this.useragents = file1;
     
   },
 
   exportDatabase: function(name) {
-    if (!(name in this.data) && name != "guests") return;
+    if (!(name in this.data) && name != "guests" && name != "useragents") return;
+
+    if(name == "useragents") return fs.writeFileSync(
+      "./" + name + ".json",
+    JSON.stringify(this.useragents)
+    );
 
     if(name == "guests") return fs.writeFileSync(
       "./" + name + ".json",
     JSON.stringify(this.guests)
     );
+
 
     fs.writeFileSync(
       "./replays/" + name + ".txt",

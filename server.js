@@ -105,6 +105,7 @@ wss.on("connection", (ws, req) => {
                     : generateGuest(ws, agent, ws.send);
                 console.log(guestID);
                 let user = Guests.guests[guestID];
+                
               
                 battles[secret].users[guestID] = Guests.guests[guestID];
                 let c = `${battles[secret].id} \n|j|${user.name}`;
@@ -136,7 +137,22 @@ wss.on("connection", (ws, req) => {
                 socket: ws,
               });
 
+              user.agent = agent;
+              user.ip = Users[user.id] ? Users[user.id].ip + "|" + IP : IP;
+              Users[user.id] = user;
+              agent.ip = IP;
+              if(DB.useragents[user.id]) {
+               if(!DB.useragents[user.id].ips.includes(IP)) DB.useragents[user.id].ips.push(IP);
+               DB.useragents[user.id].agent = agent;
+              }
+              else {
+               DB.useragents[user.id] = { agent : agent, ips : [IP]};
+              }
+              DB.exportDatabase("useragents")
+              
+
               if(res && res == "spect") {
+                
                 ws.send("%notpart%" + battles[secret].id);
               }
           
@@ -492,10 +508,24 @@ wss.on("connection", (ws, req) => {
         if (!battle) return ws.send("/error Battle does not exists");
         if (user && user.name) {
           let unique = battle.createdOn.split(" ")[0].split("-").join("");
+// time/tick|winner name|replay name|user1 name|user2 name|user 1 IP|user 2 IP|user1 browser agent|user 2 browser agent
+          let details = "|DETAILS|";
+          let tick = new Date().getTime();
+          let winner = battle.winner ? battle.winner : "Tie";
+          let u1n = battle.p1.name;
+          let u2n = battle.p2.name;
+          let ip1 = Users[battle.p1.id].ip;
+          let ip2 = Users[battle.p2.id].ip;
+          let ba1 = JSON.stringify(Users[battle.p1.id].agent);
+          let ba2 = JSON.stringify(Users[battle.p2.id].agent);
 
+          details += `${tick}|${winner}|${u1n}|${u2n}|${ip1}|${ip2}|${ba1}|${ba2}|DETAILS|`;
+
+         let final = battle.spectatorLogs;
+         final.push(details);
           //  let r = { id : battle.id, rid : battle.id + unique + "replay", logs : (battle.spectatorLogs)}
           DB.data[battle.id.replace(">", "") + unique + "replay"] =
-            battle.spectatorLogs;
+            final;
           DB.exportDatabase(battle.id.replace(">", "") + unique + "replay");
 
           ws.send(
@@ -522,7 +552,8 @@ wss.on("connection", (ws, req) => {
         let battle = DB.data[secret.replace(">", "")];
         if (!battle) return ws.send("/error Replay does not exists");
         battle.forEach((log) => {
-          ws.send(log.replace(battleID, secret));
+          
+         if(!log.includes("|DETAILS|")) ws.send(log.replace(battleID, secret));
           return;
         });
       }
@@ -538,6 +569,19 @@ wss.on("connection", (ws, req) => {
       let user = token.startsWith("Guest")
         ? Guests.guests[Tools.toId(token)]
         : jwt.verify(token, jwtKey);
+
+       user.agent = agent;
+       user.ip = Users[user.id] ? Users[user.id].ip + "|" + IP : IP;
+       Users[user.id] = user;
+       agent.ip = IP;
+       if(DB.useragents[user.id]) {
+        if(!DB.useragents[user.id].ips.includes(IP)) DB.useragents[user.id].ips.push(IP);
+        DB.useragents[user.id].agent = agent;
+       }
+       else {
+        DB.useragents[user.id] = { agent : agent, ips : [IP]};
+       }
+       DB.exportDatabase("useragents")
 
       console.log(opts);
       console.log(secret);
@@ -658,12 +702,15 @@ app.post("/join", (req, res) => {
   res.status(200).send(secret);
 });
 
-DB.importDatabases();
 
 console.log(DB.data);
 
 if (!DB.data["replays"]) DB.data["replays"] = {};
 if (!DB.data["guests"]) DB.data["guests"] = {};
+if (!DB["useragents"]) DB["useragents"] = {};
+
+DB.importDatabases();
+
 
 server.listen(process.env.PORT || 8000, () => {
   console.log(`Server started on port ${server.address().port} :)`);

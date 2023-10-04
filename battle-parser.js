@@ -3,7 +3,7 @@ exports.parseBattle = (data, p1, p2, battle) => {
   if (data.startsWith("sideupdate")) {
     let options = data.split("\n");
     let player = options[1];
-    console.log(options);
+ 
 
     switch (player) {
       case "p1":
@@ -29,7 +29,7 @@ exports.parseBattle = (data, p1, p2, battle) => {
     }
   } else if (output.startsWith("update")) {
     let data = output.split("\n");
-    console.log(data);
+
     let p1log = [];
     let p2log = [];
     let slog = [];
@@ -52,7 +52,7 @@ exports.parseBattle = (data, p1, p2, battle) => {
       }
     }
     
-    console.log(slog);
+
     battle.spectatorLogs.push(`${battle.id} \n${slog.join("\n")}`);
     battle.broadcastAll(`${battle.id} \n${slog.join("\n")}`);
     battle.p1log.push(`${battle.id} \n${p1log.join("\n")}`);
