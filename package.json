@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "git pull && npm i && node server.js",
     "test": "mocha tests/*.js --recursive --exit"
   },
   "author": "",
