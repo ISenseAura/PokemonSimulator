@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests/*.js --recursive --exit"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "@pkmn/sim": "^0.7.45",
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
+    "chai": "^4.3.10",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "firebase": "^7.13.1",

@@ -288,7 +288,8 @@ wss.on("connection", (ws, req) => {
             signup(username, password, false);
             setTimeout(() => {
               initUser(Tools.toId(username, ws)).then((token) => {
-                if (token) ws.send("%login%" + token);
+                if (token) return ws.send("%login%" + token);
+                if(Users[Tools.toId(username)]) return ws.send("%login%" + Users[Tools.toId(username)].token);
               });
             }, 1000);
           }
@@ -300,11 +301,13 @@ wss.on("connection", (ws, req) => {
             // console.log(user);
             if (data[3] == "Guest") return;
 
-            let v = verifyUser(data[2], data[3]);
+            data[2] = Tools.toId(data[2]);
+            let v = verifyUser(data[2], data[3].split("|")[0]);
             console.log(v);
             console.log(data[2]);
             if (v) {
               let user = Users[data[2].trim()];
+              console.log(user);
               delete user.password;
               //   console.log(user);
               JSON.stringify(Users[data[2].trim()]);
@@ -680,6 +683,10 @@ app.post("/create", (req, res) => {
 
   res.status(200).send({ success: true, data: secret });
 });
+
+app.get("/test",(req,res) => {
+  res.send("server running")
+})
 
 app.post("/join", (req, res) => {
   if (!req.body) return res.status(400);
