@@ -4,9 +4,11 @@ var expect = require('chai').expect
 describe("PokeDex IDs Test", function () {
    it ("should return a pokemon 'wynaut' with ID 360", function() {
 
-    for (const pokemon of PokeDex.species.all()) {
-      if (pokemon.num === targetNum) {
-        let target = pokemon.baseSpecies;
+    //console.log(PokeDex.abilities.all()[1]);
+    //return;
+    for (const pokemon of PokeDex.abilities.all()) {
+      if (pokemon.name === "Shadow Tag") {
+        let target = pokemon;
         console.log(target);
         break;
       }

@@ -319,11 +319,15 @@ wss.on("connection", (ws, req) => {
             if (v) {
               let user = Users[data[2].trim()];
               console.log(user);
-              if(!user || typeof user != typeof {}) return  ws.send("%tokenexpired%");
+              if(!user || typeof user != typeof {}) {
+
+                ws.send("%sessionexpired%");
+                ws.send("%tokenexpired%");
+              }  
               delete user.password;
               //   console.log(user);
               JSON.stringify(Users[data[2].trim()]);
-             if(Users[token]  && Users[token].sessionID != ws.sessionID) Users[token].send("%sessionexpired%");
+             if(Users[token]  && Users[token].sessionID != ws.sessionID)  Users[token].send("%sessionexpired%");
               Users[token] = ws;
               ws.send("%tokenverified%" + JSON.stringify(user));
             } else {
