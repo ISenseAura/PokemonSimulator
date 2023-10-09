@@ -32,6 +32,14 @@ app.use(
   })
 );
 
+let sessions = {};
+
+function generateSessionID() {
+  let ID = Tools.generateKey(16);
+  if(sessions[ID]) return generateSessionID();
+  return ID;
+}
+
 function generateSecret() {
   let secret = Tools.generateKey(4);
   if (battles[secret]) return generateSecret();
@@ -64,6 +72,8 @@ battles["test"] = new SingleBattle("gen7ou", false, false, false, "test");
 const wss = new WebSocket.Server({ server });
 
 wss.on("connection", (ws, req) => {
+  ws.sessionID = generateSessionID();
+  sessions[ws.sessionID] = ws;
   ws.on("message", (message) => {
     message = message.toString();
     // console.log(message);
@@ -76,6 +86,7 @@ wss.on("connection", (ws, req) => {
 
     if (message.charAt(0) == "%") {
       console.log(message);
+
       let data = message.split("%");
       let secret = data[2];
       let participant = Tools.toId(data[3]);
@@ -311,8 +322,8 @@ wss.on("connection", (ws, req) => {
               delete user.password;
               //   console.log(user);
               JSON.stringify(Users[data[2].trim()]);
-              if(Users[token]) Users[token].send("%sessionexpired%");
-              Users[token] = ws;
+           //   if(Users[token]  && Users[token].ws.sessionID != ws.sessionID) Users[token].send("%sessionexpired%");
+           //   Users[token] = ws;
               ws.send("%tokenverified%" + JSON.stringify(user));
             } else {
               ws.send("%tokenexpired%");
