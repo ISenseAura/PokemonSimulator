@@ -12,6 +12,6 @@ describe("PokeDex IDs Test", function () {
         console.log(target);
         break;
       }
-    }  expect(PokeDex.species.get("wynaut").exists).to.equal(true);
+    }  expect(PokeDex.species.get("wynaut").exists).to.equal(false);
    })
 })

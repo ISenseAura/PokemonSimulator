@@ -91,6 +91,12 @@ wss.on("connection", (ws, req) => {
       let secret = data[2];
       let participant = Tools.toId(data[3]);
       let token = data[4];
+      if(token) { 
+        if(token.startsWith("Guest")) {
+          token = "Guest"
+          participant = "spect";
+        } 
+      }
       if (token) {
         if (token.includes("|")) token = data[4].split("|")[0];
       }
@@ -323,8 +329,9 @@ wss.on("connection", (ws, req) => {
 
                 ws.send("%sessionexpired%");
                 ws.send("%tokenexpired%");
+                return;
               }  
-              delete user.password;
+             if(user.password) delete user.password;
               //   console.log(user);
               JSON.stringify(Users[data[2].trim()]);
              if(Users[token]  && Users[token].sessionID != ws.sessionID)  Users[token].send("%sessionexpired%");
@@ -576,10 +583,10 @@ wss.on("connection", (ws, req) => {
           return;
         });
       }
-    } else if (message.includes("|")) {
+    } else if (message.slice(1, 8) == "chatmsg" || message.slice(1, 8) == "cm") {
       console.log(message);
       let opts = message.split("|");
-      let msg = opts[0];
+      let msg = opts[0].replace("/chatmsg","");;
       let secret = opts[1].split("-")[2];
       let token = opts[2];
       let battle = battles[secret];

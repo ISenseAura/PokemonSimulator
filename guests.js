@@ -19,17 +19,17 @@ class Guest {
 class Guests {
   constructor() {
     this.guests = {};
-    this.totalGuests = DB.guests ? Object.keys(DB.guests) : 0;
+    this.totalGuests = DB.guests ? Object.keys(DB.guests).length : Object.keys(this.guests).length;
   }
 
   new(ws, agent) {
-    let len = this.totalGuests.toString().length;
+    let len = (this.totalGuests + 1) / 1000000;
     console.log(len);
     let name = "Guest";
-    for (let i = 0; i <= 5 - len; i++) {
-      name += 0;
-    }
-    name += this.totalGuests + 1;
+
+    this.totalGuests += 1;
+    name += len;
+    name = name.replace(".","")
     this.guests[Tools.toId(name)] = new Guest(name, ws, agent);
     DB.guests[Tools.toId(name)] = { ip: agent.ip };
     DB.exportDatabase("guests");
