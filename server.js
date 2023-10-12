@@ -327,8 +327,8 @@ wss.on("connection", (ws, req) => {
               console.log(user);
               if(!user || typeof user != typeof {}) {
 
-                ws.send("%sessionexpired%");
-                ws.send("%tokenexpired%");
+              ///  ws.send("%sessionexpired%");
+              ////  ws.send("%tokenexpired%");
                 return;
               }  
              if(user.password) delete user.password;
