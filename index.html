@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+
+<html xml:lang="en" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mayur Hiwale- Portfolio</title>
+    <script>
+      <!--
+      if (document.location.href === "http://Zerapium.github.io/") {
+        document.location.replace("http://mayurhiwale.com/");
+      }
+      -->
+    </script>
+    <style>
+      <!-- html {
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        font-family: Verdana, Arial, Tahoma, sans-serif;
+        font-size: 11pt;
+        background-color: #f0f8ff;
+      }
+      .wrapper {
+        border: 1px solid #818d98;
+        margin: 0 auto 20px auto;
+        padding: 67px 10px 8px 10px;
+        max-width: 8in;
+        text-align: left;
+        position: relative;
+        background-color: rgb(255, 252, 252);
+      }
+      .pseudowrapper {
+        border: 1px solid #818d98;
+        margin: 0 auto 20px auto;
+        padding: 1px 10px 8px 10px;
+        max-width: 8in;
+        text-align: left;
+        position: relative;
+        background-color: rgb(255, 252, 252);
+      }
+      p {
+        padding: 0 5px;
+        margin: 1em 0;
+      }
+      h1 {
+        font-family: Arial, Tahoma, Verdana, sans-serif;
+        font-size: 14pt;
+        color: #818d98;
+      }
+      h1 .header {
+        display: block;
+        padding: 15px 10px 5px 10px;
+        position: absolute;
+        top: -10px;
+        left: 57px;
+        border-bottom: 1px solid #818d98;
+      }
+      h1 .header span {
+        padding: 15px 10px;
+        margin-left: 5px;
+        border-left: 1px solid #818d98;
+        color: #000000;
+      }
+      h1 img {
+        background: rgb(255, 252, 252);
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        border-bottom: 1px solid #818d98;
+        border-right: 1px solid #818d98;
+        padding: 0 0 2px 2px;
+
+      }
+      h2 {
+        border-bottom: 1px solid #818d98;
+        color: #818d98;
+        padding: 5px;
+        margin: 10px 0;
+        font-size: 13pt;
+        font-weight: bold;
+        font-style: normal;
+      }
+      .thumb {
+        width: 256px;
+        height: 192px;
+        border: 1px solid #aaaaaa;
+        padding: 1px;
+        display: block;
+      }
+      .copyright {
+        text-align: center;
+        color: #999999;
+        font-size: 10pt;
+      }
+      a {
+        color: #3a416b;
+        text-decoration: underline;
+      }
+      a:hover {
+        color: #445599;
+      }
+      .item {
+        clear: left;
+        display: block;
+        text-decoration: none;
+        height: 196px;
+        margin-bottom: 1em;
+
+        opacity: 0.7;
+        filter: alpha(opacity=70);
+        -webkit-transition: opacity 0.16s linear;
+        -moz-transition: opacity 0.16s linear;
+        -o-transition: opacity 0.16s linear;
+        -ms-transition: opacity 0.16s linear;
+        transition: opacity 0.16s linear;
+      }
+      .item br {
+        display: none;
+      }
+      .item .thumb {
+        float: left;
+      }
+      .item .desc {
+        display: block;
+        margin-left: 271px;
+        padding-top: 10px;
+        color: #000000;
+      }
+      .item .desc strong {
+        display: block;
+        margin-bottom: 8px;
+      }
+      .item .desc em {
+        font-weight: normal;
+        font-style: italic;
+        font-size: 9pt;
+      }
+      a.item:hover {
+        opacity: 1;
+        filter: alpha(opacity=100);
+      }
+      -- > .page-content {
+        max-width: 700px;
+        margin: 32px auto;
+        padding: 32px;
+        background: #fff;
+      }
+
+      .tabbed {
+        overflow-x: hidden; /* so we could easily hide the radio inputs */
+        margin: 32px 0;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .tabbed [type="radio"] {
+        /* hiding the inputs */
+        display: none;
+      }
+
+      .tabs {
+        display: flex;
+        align-items: stretch;
+        list-style: none;
+        padding: 0;
+        border-bottom: 1px solid #ccc;
+      }
+      .tab > label {
+        display: block;
+        margin-bottom: -1px;
+        padding: 12px 15px;
+        border: 1px solid #ccc;
+        background: #eee;
+        color: #666;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .tab:hover label {
+        border-top-color: #333;
+        color: #333;
+      }
+
+      .tab-content {
+        display: none;
+        color: #777;
+      }
+
+      /* As we cannot replace the numbers with variables or calls to element properties, the number of this selector parts is our tab count limit */
+      .tabbed
+        [type="radio"]:nth-of-type(1):checked
+        ~ .tabs
+        .tab:nth-of-type(1)
+        label,
+      .tabbed
+        [type="radio"]:nth-of-type(2):checked
+        ~ .tabs
+        .tab:nth-of-type(2)
+        label,
+      .tabbed
+        [type="radio"]:nth-of-type(3):checked
+        ~ .tabs
+        .tab:nth-of-type(3)
+        label,
+      .tabbed
+        [type="radio"]:nth-of-type(4):checked
+        ~ .tabs
+        .tab:nth-of-type(4)
+        label,
+      .tabbed
+        [type="radio"]:nth-of-type(5):checked
+        ~ .tabs
+        .tab:nth-of-type(5)
+        label {
+        border-bottom-color: #fff;
+        border-top-color: #b721ff;
+        background: #fff;
+        color: #222;
+      }
+
+      .tabbed
+        [type="radio"]:nth-of-type(1):checked
+        ~ .tab-content:nth-of-type(1),
+      .tabbed
+        [type="radio"]:nth-of-type(2):checked
+        ~ .tab-content:nth-of-type(2),
+      .tabbed
+        [type="radio"]:nth-of-type(3):checked
+        ~ .tab-content:nth-of-type(3),
+      .tabbed
+        [type="radio"]:nth-of-type(4):checked
+        ~ .tab-content:nth-of-type(4) {
+        display: block;
+      }
+    </style>
+    <!--[if IE 6]>
+      <script type="text/javascript">
+        // Hack for max width on IE6
+        function resize() {
+          document.body.style.width =
+            document.documentElement.clientWidth > 800 ? "738px" : "auto";
+        }
+        window.onresize = resize;
+        window.onload = resize;
+      </script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>
+        <img src="/assets/pokeball.png" style="width:55px;height:55px;" alt="" />
+        <span class="header">Mayur Hiwale<span>Portfolio</span></span>
+      </h1>
+      <p>
+        Hi. I'm Mayur Hiwale. I am a backend developer but i also have experience in developing both android and Web
+        applications. Here's some of the work I've done.
+      </p>
+      <p>
+        You may also wish to see my resume; it is available at:
+        <a href="https://my.indeed.com/p/mayurh-c5jkdex">Indeed</a>.
+      </p>
+    </div>
+    <div class="pseudowrapper">
+      <h2>Projects I've created</h2>
+
+      <p>
+        These are projects that are completely or mostly my work - since some of
+        them are open-source projects, others have contributed various things,
+        but everything major was done by me.
+      </p>
+      <div class="tabbed">
+        <input type="radio" id="tab1" name="css-tabs" checked />
+        <input type="radio" id="tab2" name="css-tabs" />
+        <input type="radio" id="tab3" name="css-tabs" />
+        <input type="radio" id="tab4" name="css-tabs" />
+
+        <ul class="tabs">
+          <li class="tab"><label for="tab1">Open Source</label></li>
+          <li class="tab"><label for="tab2">Personal</label></li>
+          <li class="tab"><label for="tab3">Competitive</label></li>
+          <li class="tab"><label for="tab4">Professional</label></li>
+        </ul>
+
+
+        
+        <div class="tab-content">
+          <div>
+            <a
+              href="https://github.com/ISenseAura/PokemonSimulator/tree/main"
+              target="_blank"
+              class="item"
+            >
+              <img src="assets/psim.png" alt="" class="thumb" /><br />
+              <span class="desc"
+                ><strong>Pokemon Battle Simulator! <em></em></strong>
+               A Customized Pokemon Battle simulator</span
+              >
+              <span class="desc"
+                > Extracted the simulation part of the official PS! server</span
+              >
+              <span class="desc"
+              > Created a separate login server, custom battle creation feature and improved players interaction according to client's requirements</span
+            >
+
+              <span class="desc">(My first international client project)</span>
+            </a>
+          </div>
+
+          <div>
+            <a
+              href="https://github.com/NexGenBIAS/BIAS-API"
+              target="_blank"
+              class="item"
+            >
+              <img src="assets/bias.png" alt="" class="thumb" /><br />
+              <span class="desc"
+                ><strong>BIAS! <em>bias.metaupspace.com</em></strong> Bot for Instant Assignment Solutions is an online platform and archive that 
+                solves the university assignment questions and provide you with a shareble PDF</span
+              >
+              <span class="desc"
+                >i was solely responsible for developing, maintaining and documenting the API. </span
+              >
+              <span class="desc"
+                >(It was later sponsored by MetaUpSpace )</span
+              >
+            </a>
+          </div>
+
+    
+
+          <!---
+          <div>
+            <a href="https://pokecards.glitch.me/cards" target="_blank" class="item">
+              <img src="assets/pcenter.png" alt="" class="thumb" /><br />
+              <span class="desc"
+                ><strong>JavaScript Tutorial App! <em></em></strong>
+               It is an android app that gives you javascript text-based tutorial </span
+              >
+              <span class="desc"
+                >Tutorial available in 3 different languages. Tutorial translations was done by a contributor</span
+              >
+              <span class="desc"
+              >(First android app | open-source)</span
+            >
+            </a>
+          </div>
+        --></div>
+
+
+        <div class="tab-content">
+          <div>
+            <a
+              href="https://pokecards.glitch.me/"
+              target="_blank"
+              class="item"
+            >
+              <img src="assets/tcg.png" alt="" class="thumb" /><br />
+              <span class="desc"
+                ><strong>Pokemon TCG Lite! <em>pokemontcglite.com</em></strong>
+                A platform that has cool interface and lets you search pokemon
+                cards</span
+              >
+              <span class="desc"
+                >Did everything: UI, designing, animation and backend. Used
+                pokeapi to fetch pokemon cards database</span
+              >
+
+              <span class="desc">(Built UI using ReactJS)</span>
+            </a>
+          </div>
+
+          <div>
+            <a
+              href="https://uncovered-bustling-jade.glitch.me/"
+              target="_blank"
+              class="item"
+            >
+              <img src="assets/blogworld.png" alt="" class="thumb" /><br />
+              <span class="desc"
+                ><strong>BlogWorld! <em>myblogworld.com</em></strong> BlogWorld
+                is an online blogging platform that lets you write/update/delete
+                blogs easily</span
+              >
+              <span class="desc"
+                >Did everything: UI, Frontend,Algorithms, authentication system,
+                API and maintained database. A Complete MERN Stack
+                project.</span
+              >
+              <span class="desc"
+                >(Fully functioning self-built MERN project)</span
+              >
+            </a>
+          </div>
+
+          <div>
+            <a
+              href="https://orderofphoenix.psim.us/"
+              target="_blank"
+              class="item"
+            >
+              <img src="assets/oopserver.jpg" alt="" class="thumb" /><br />
+              <span class="desc"
+                ><strong
+                  >Order Of Phoenix! (Side Server)
+                  <em>orderofphoenix.psim.us</em></strong
+                >
+                It is a side server of an online battle simulator called Pokemon
+                Showdown.</span
+              >
+              <span class="desc">
+                Despite being a copy of Pokemon Showdown. It had many advanced
+                features, that i had coded, than the main server itself. Had 30+
+                daily active users.</span
+              >
+              <span class="desc">(I built this when i was 14)</span>
+            </a>
+          </div>
+
+          <div>
+            <a href="https://github.com/Zerapium/Bluemarble-ChatApp" target="_blank" class="item">
+              <img src="assets/bluemarble.jpg" alt="" class="thumb" /><br />
+              <span class="desc"
+                ><strong>BlueMarble! (Chat App) <em>bluemarble.me</em></strong>
+                Bluemarble is a real time chat app built using NodeJS and
+                Socket.io.</span
+              >
+              <span class="desc">
+                Built from scratch, implemented the use of WebSockets. As an
+                open source project others were able to contribute but major
+                work was done by me.</span
+              >
+              <span class="desc">(2nd project when i was 14)</span>
+            </a>
+          </div>
+          <!---
+          <div>
+            <a href="https://pokecards.glitch.me/cards" target="_blank" class="item">
+              <img src="assets/pcenter.png" alt="" class="thumb" /><br />
+              <span class="desc"
+                ><strong>JavaScript Tutorial App! <em></em></strong>
+               It is an android app that gives you javascript text-based tutorial </span
+              >
+              <span class="desc"
+                >Tutorial available in 3 different languages. Tutorial translations was done by a contributor</span
+              >
+              <span class="desc"
+              >(First android app | open-source)</span
+            >
+            </a>
+          </div>
+        --></div>
+
+        <div class="tab-content">
+          <div>
+            <a
+              href="https://connect-n-help.web.app"
+              target="_blank"
+              class="item"
+            >
+              <img src="assets/connect.png" alt="" class="thumb" /><br />
+              <span class="desc"
+                ><strong>ConnectNHelp! (Ranked Top 50 globally) </strong>
+                ConnectNHelp™ is a platform made to connect potential donors. It
+                was submitted as a solution to Google Solution Challenge
+                2022.</span
+              >
+              <span class="desc"
+                >Participated as a team of 3. Handled the entire development
+                phase by myself including frontend, backend and database.</span
+              >
+            </a>
+          </div>
+
+          <div>
+            <a
+              href="#"
+              target="_blank"
+              class="item"
+            >
+              <img src="assets/agnus.png" alt="" class="thumb" /><br />
+              <span class="desc"
+                ><strong
+                  >AGNUS! (Hackathon Solution) <em>not hosted</em></strong
+                >
+                A solution to the problem statement given during Nirman
+                Hackathon 2023</span
+              >
+              <span class="desc"
+                >It is a college alumni management system. We worked as a team
+                of 3. The whole development phase was implemented by myself.
+                Recieved great feedback and appreciation from the judges</span
+              >
+
+              <span class="desc"
+                >(Fully working ready-to-launch project built in 36 hours)</span
+              >
+            </a>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div>
+            <a
+              href="https://justorderit.in"
+              target="_blank"
+              class="item"
+            >
+              <img src="assets/order.png" alt="" class="thumb" /><br />
+              <span class="desc"
+                ><strong>JustOrderIt! <em>justorderit.in</em></strong> It is an
+                online food delivery app for the people of Nandura City</span
+              >
+              <span class="desc"
+                >Did everything: UI, frontend, backend, database management,
+                authentication system.</span
+              >
+              <span class="desc">(A profitable startup)</span>
+            </a>
+          </div>
+
+          <div>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.wJavaScriptTutorial_13807964"
+              target="_blank"
+              class="item"
+            >
+              <img src="assets/tut.png" alt="" class="thumb" /><br />
+              <span class="desc"
+                ><strong>JavaScript Tutorial App! <em></em></strong> It is an
+                android app that gives you javascript text-based tutorial
+              </span>
+              <span class="desc"
+                >Tutorial available in 3 different languages. Tutorial
+                translations was done by a contributor</span
+              >
+              <span class="desc">(First android app | open-source)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--div><a href="http://pokemonshowdown.com/forum/forum" target="_blank" class="item">
+        <img src="preview_psforums.png" alt="" class="thumb" /><br />
+        <span class="desc"><strong>Showdown! Forums <em>pokemonshowdown.com/forum/forum</em></strong> An innovative approach to navigating webforums, by spatially moving through columns.</span>
+      </a></div-->
+
+    <div class="pseudowrapper">
+      <h2>Projects I've contributed to</h2>
+      <div>
+        <a href="https://sayhey.co.in/" target="_blank" class="item">
+          <img src="/assets/sayheyapp.png" alt="" class="thumb" /><br />
+          <span class="desc"
+            ><strong>OfficialSayHey <em>internship</em></strong> “SayHey!!” is a
+            holistic Mental Health Technology platform aiming to bring all
+            mental health-related services to one’s fingertips.</span
+          >
+
+          <span class="desc"
+            >I developed and maintained backend for the app. Implemented push
+            notifications in the app, maintained database and improved
+            scalability.
+          </span>
+        </a>
+      </div>
+
+      <div>
+        <a href="https://sainoxtech.github.io/" target="_blank" class="item">
+          <img src="/assets/sainox.png" alt="" class="thumb" /><br />
+          <span class="desc"
+            ><strong>SaiNox Technologies <em>internship</em></strong> Sainox
+            Technologies is a software development & IT solution company founded in Delhi in the year 2020.</span
+          >
+
+          <span class="desc"
+            >I made the contribution of improving website HTML and CSS and making the UI more attractive
+          </span>
+        </a>
+      </div>
+
+     
+    </div>
+    <div class="pseudowrapper">
+      <h2>Github</h2>
+      <p>
+        <a href="https://github.com/isenseaura" target="_blank"
+          >My Github username is also Zerapium</a
+        >, although few of my projects are currently there.
+        I have also made  <a href="https://www.npmjs.com/package/js-helpertools" target="_blank"
+        >a NPM Package</a
+      >
+  for NodeJS developers.
+      </p>
+      <p>
+        I've submitted a few bug patches to open source projects on Github, when
+        I've encountered problems with using them.
+      </p>
+    </div>
+    <p class="copyright">&copy; Mayur Hiwale </p>
+  </body>
+</html>
